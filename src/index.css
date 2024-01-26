@@ -31,11 +31,11 @@ body {
   }
 
   .btn_black {
-    @apply border-white bg-black-90 px-8 py-3 text-white
+    @apply border-white bg-black px-8 py-3 text-white
   }
 
   .btn_black_text {
-    @apply border-white bg-black-90 px-2 py-1 text-white
+    @apply border-white bg-black px-2 py-1 text-white
   }
 
   .btn_green {
@@ -43,11 +43,15 @@ body {
   }
 
   .btn_dark_green {
-    @apply bg-green-90 px-6 py-2 text-white transition-all hover:bg-black-90
+    @apply bg-green-90 px-6 py-2 text-white transition-all hover:bg-black
   }
 
   .btn_dark_green_outline {
-    @apply border-gray-20 bg-green-90 px-8 py-5 text-white
+    @apply border-gray-20 bg-green px-8 py-5 text-white
+  }
+
+  .btn_dark_red_outline_rounded {
+    @apply  bg-red-700 px-4 py-3 text-white rounded-md
   }
 
   .max-container {

@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 type HeroProps = {
     title: string;
     subtitle?: string;
@@ -17,7 +19,8 @@ const Hero = ({ title, subtitle, image, full }: HeroProps) => {
                 className="h-[100vh] top-[-50px] absolute flex flex-col justify-center items-center w-full "
             >
                 <h1 className="text-7xl font-alfa-slab text-bold text-center">{title}</h1>
-                {subtitle && <p className="text-xl mt-3 text-center">{subtitle}</p>}
+                {subtitle && <p className="text-xl mt-3 text-center m-2">{subtitle}</p>}
+                <Button type="button" title="Book Now" variant="btn_dark_red_outline_rounded" />
             </div>
         </section>
     );
