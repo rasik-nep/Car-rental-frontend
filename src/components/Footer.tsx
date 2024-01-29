@@ -22,7 +22,7 @@ export default function Footer() {
                     <div className='flex flex-wrap gap-10 sm:justify-between'>
                         <FooterColumn title={FOOTER_CONTACTS.title}>
                             {FOOTER_CONTACTS.content.map((contact) => (
-                                <div>
+                                <div key={contact.title}>
                                     <b>{contact.title}: </b>
                                     <span>{contact.label}</span>
                                 </div>
