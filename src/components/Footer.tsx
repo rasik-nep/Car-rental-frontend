@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <footer className="flexCenter bg-black-90 pt-5 bg-white text-black">
             <div className="padding-container full-container flex w-full flex-col gap-14">
-                <div className="flex flex-row justify-around">
+                <div className="flex flex-col md:flex-row justify-around gap-10">
                     <div className="m-30">
                         <img src="./logo.png" alt="logo" className="h-[9rem] w-[9rem]" />
                     </div>
