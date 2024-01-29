@@ -6,36 +6,23 @@ export const NAV_LINKS = [
   { href: '/contact_us', key: 'contact_us', label: 'Contact Us' },
 ];
 
-// FOOTER SECTION
-export const FOOTER_LINKS = [
-  {
-    title: 'Learn More',
-    links: [
-      'About Hilink',
-      'Privacy Policy',
-      'Contact Us',
-    ],
-  },
-];
-
-export const FOOTER_CONTACT_INFO = {
-  title: 'Contact Us',
-  links: [
-    { label: 'Admin Officer', value: '123-456-7890' },
-    { label: 'Email Officer', value: 'hilink@akinthil.com' },
-  ],
-};
+export const FOOTER_CONTACTS={
+  title: 'Contact',
+  content:[
+    {title:  "Location", label: "New Baneshwor, Kathmandu" },
+    { title:  "Phone", label: "+977-9851164345" },
+    { title:  "Email", label: "shanvehiclerental@gmail.com" },
+  ]
+}
 
 export const SOCIALS = {
   title: 'Social',
   links: [
     '/facebook.svg',
-    '/instagram.svg',
-    '/twitter.svg',
   ],
 };
 
-export const ServicesDisplaySection=[
+export const SERVICES_DISPLAY_SECTION=[
   {
     index:"01",
     firstSpan:"Personalized",
@@ -61,3 +48,4 @@ export const ServicesDisplaySection=[
     imgLink:"./neta-back.jpg"
   }
 ]
+
