@@ -20,6 +20,11 @@ body {
   top: -50px;
 }
 
+nav img{
+  -webkit-filter: grayscale(1) invert(1);
+  filter: grayscale(1) invert(1);
+}
+
 @layer utilities {
   .font-alfa-slab {
     font-family: 'Alfa Slab One', serif;

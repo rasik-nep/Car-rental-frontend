@@ -6,7 +6,7 @@ type HeroProps = {
 
 const PhotosText = ({ title, subtitle, image }: HeroProps) => {
     return (
-        <div className="relative overflow-hidden h-[20rem] w-[20rem] border rounded-md">
+        <div className="relative overflow-hidden h-[25rem] w-[25rem] border rounded-md m-3">
             {/* Dark div with transparency and background image */}
             <div
                 className="absolute inset-0 "
