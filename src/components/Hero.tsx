@@ -33,7 +33,7 @@ const Hero = ({ title, subtitle, image, full }: HeroProps) => {
                 {subtitle && <p className="text-xl mt-3 text-center m-2">{subtitle}</p>}
                 <a href="https://wa.me/9869292648?text=Reserve a car" target="_blank">
                     <Button type="button" title="Book Now" variant="btn_dark_red_outline_rounded" />
-                </a>/
+                </a>
             </div>
             {/* Button placed at the bottom */}
             <div className="absolute bottom-4 right-4 mt-[00px] w-full">

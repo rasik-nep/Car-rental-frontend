@@ -1,11 +1,11 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Testimonials from "./components/testimonials";
 import Services from "./components/services";
-import BookNow from "./components/BookNow";
-import Price from "./components/Price";
-import Footer from "./components/Footer";
+// import BookNow from "./components/BookNow";
+import Price from "./components/price";
+import Footer from "./components/layout/Footer";
 
 function App() {
 

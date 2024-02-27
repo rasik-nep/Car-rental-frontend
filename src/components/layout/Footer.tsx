@@ -1,20 +1,22 @@
-import { SOCIALS, FOOTER_CONTACTS } from "../constants";
+import { SOCIALS, FOOTER_CONTACTS } from "../../constants";
 
 export default function Footer() {
     return (
-        <footer className="flexCenter bg-black-90 pt-5 bg-black text-white">
+        <footer className="flexCenter bg-black-90 pt-5 bg-gray-900 text-white">
             <div className="padding-container full-container flex w-full flex-col gap-14">
                 <div className="flex flex-col md:flex-row justify-around gap-10">
                     <div className="m-30">
-                        <img src="./logo.png" alt="logo" className="h-[9rem] w-[9rem] " />
+                        <img src="./logo.png" alt="logo" className="h-[9rem] w-[9rem] logoImage" />
                     </div>
                     <div className='flex flex-wrap gap-10 sm:justify-between '>
                         <FooterColumn title={SOCIALS.title}>
                             <ul className="regular-14 flex gap-4">
                                 {SOCIALS.links.map((link) => (
-                                    <a href="https://www.facebook.com/shanvehiclerental" key={link}>
-                                        <img src={link} alt="logo" />
-                                    </a>
+                                    <div key={link.label}>
+                                        <a href={link.href} target="_blank" className="text-xl hover:text-red-400 ">
+                                            <link.logo />
+                                        </a>
+                                    </div>
                                 ))}
                             </ul>
                         </FooterColumn>

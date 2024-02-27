@@ -1,10 +1,10 @@
 import { CompactTable } from '@table-library/react-table-library/compact';
-import { PRICE_LIST } from '../constants';
+import { PRICE_LIST } from '../../constants';
 
 interface Node {
     id: number;
     name: string;
-    price: number;
+    price: string;
 }
 
 const nodes: Node[] = PRICE_LIST;
@@ -15,7 +15,7 @@ const COLUMNS = [
         label: 'Name',
         renderCell: (item: Node) => item.name
     },
-    { label: 'Price', renderCell: (item: Node) => item.price },
+    { label: 'Price (Per day)', renderCell: (item: Node) => item.price },
 ];
 
 export default function TableComponent() {

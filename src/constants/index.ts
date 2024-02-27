@@ -1,3 +1,6 @@
+// socials.js
+import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+
 // NAVIGATION
 export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Home' },
@@ -16,10 +19,12 @@ export const FOOTER_CONTACTS={
 }
 
 export const SOCIALS = {
-  title: 'Social',
-  links: [
-    '/facebook.svg',
-  ],
+    title: 'Social',
+    links: [
+        { label: 'Facebook', href: 'https://www.facebook.com', logo: FaFacebook },
+        { label: 'Instagram', href: 'https://www.instagram.com', logo: FaInstagram },
+        { label: 'WhatsApp', href: 'https://www.twitter.com', logo: FaWhatsapp },
+    ],
 };
 
 export const SERVICES_DISPLAY_SECTION=[
@@ -53,86 +58,86 @@ export const PRICE_LIST=[
   {
     id: 0,
     name: 'Datsun Go',
-    price: 5000
+    price: 'Rs. 5000'
   },
   {
     id: 1,
     name: 'Celerio',
-    price: 5500
+    price: 'Rs. 5500'
   },
   {
     id: 2,
     name: 'i20 Active',
-    price: 7000
+    price: 'Rs. 7000'
   },
   {
     id: 3,
     name: 'Magnite',
-    price: 7500
+    price: 'Rs. 7500'
   },
   {
     id: 4,
     name: 'EcoSport',
-    price: 7500
+    price: 'Rs. 7500'
   },
   {
     id: 5,
     name: 'Venue',
-    price: 7500
+    price: 'Rs. 7500'
   },
   {
     id: 6,
     name: 'Brezza',
-    price: 8000
+    price: 'Rs. 8000'
   },
   {
     id: 7,
     name: 'Nexon',
-    price: 8500
+    price: 'Rs. 8500'
   },
   {
     id: 8,
     name: 'Kicks',
-    price: 9000
+    price: 'Rs. 9000'
   },
   {
     id: 9,
     name: 'Terrano',
-    price: 10000
+    price: 'Rs. 10000'
   },
   {
     id: 10,
     name: 'Fiat Punto',
-    price: 5500
+    price: 'Rs. 5500'
   },
   {
     id: 11,
     name: 'Swift',
-    price: 6500
+    price: 'Rs. 6500'
   },
   {
     id: 12,
     name: 'Hyundai Creta',
-    price: 7500
+    price: 'Rs. 7500'
   },
   {
     id: 13,
     name: 'Creta (2022)',
-    price: 9000
+    price: 'Rs. 9000'
   },
   {
     id: 14,
     name: 'Mahindra XUV 500',
-    price: 9500
+    price: 'Rs. 9500'
   },
   {
-    id: 12,
+    id: 15,
     name: 'Kia Seltos',
-    price: 9500
+    price: 'Rs. 9500'
   },
   {
-    id: 13,
+    id: 16,
     name: 'Scorpio',
-    price: 9500
+    price: 'Rs. 9500'
   },
-]
+];
