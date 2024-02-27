@@ -4,6 +4,7 @@ import About from "./components/About";
 import Testimonials from "./components/testimonials";
 import Services from "./components/services";
 import BookNow from "./components/BookNow";
+import Price from "./components/Price";
 import Footer from "./components/Footer";
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
       <Hero title={"Explore with Ease"} subtitle={"Affordable, reliable vehicle rentals at your service."} image={'./neta-back.jpg'} full={true} />
       <About />
       <Services />
-      <BookNow />
+      {/* <BookNow /> */}
+      <Price />
       <Testimonials />
       <Footer />
     </div>

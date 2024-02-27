@@ -49,3 +49,90 @@ export const SERVICES_DISPLAY_SECTION=[
   }
 ]
 
+export const PRICE_LIST=[
+  {
+    id: 0,
+    name: 'Datsun Go',
+    price: 5000
+  },
+  {
+    id: 1,
+    name: 'Celerio',
+    price: 5500
+  },
+  {
+    id: 2,
+    name: 'i20 Active',
+    price: 7000
+  },
+  {
+    id: 3,
+    name: 'Magnite',
+    price: 7500
+  },
+  {
+    id: 4,
+    name: 'EcoSport',
+    price: 7500
+  },
+  {
+    id: 5,
+    name: 'Venue',
+    price: 7500
+  },
+  {
+    id: 6,
+    name: 'Brezza',
+    price: 8000
+  },
+  {
+    id: 7,
+    name: 'Nexon',
+    price: 8500
+  },
+  {
+    id: 8,
+    name: 'Kicks',
+    price: 9000
+  },
+  {
+    id: 9,
+    name: 'Terrano',
+    price: 10000
+  },
+  {
+    id: 10,
+    name: 'Fiat Punto',
+    price: 5500
+  },
+  {
+    id: 11,
+    name: 'Swift',
+    price: 6500
+  },
+  {
+    id: 12,
+    name: 'Hyundai Creta',
+    price: 7500
+  },
+  {
+    id: 13,
+    name: 'Creta (2022)',
+    price: 9000
+  },
+  {
+    id: 14,
+    name: 'Mahindra XUV 500',
+    price: 9500
+  },
+  {
+    id: 12,
+    name: 'Kia Seltos',
+    price: 9500
+  },
+  {
+    id: 13,
+    name: 'Scorpio',
+    price: 9500
+  },
+]
