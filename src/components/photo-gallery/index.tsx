@@ -1,5 +1,3 @@
-import "react-image-gallery/styles/css/image-gallery.css";
-
 export default function PhotoGallery() {
   return (
     <div>
