@@ -22,7 +22,7 @@ export default function TextComponent({ index, firstSpan, secondSpan, descriptio
                 <div className="w-full lg:w-4/12 px-4 mb-8 lg:mb-0">
                     <div className="flex items-start">
                         <span className="hidden group-hover:inline-block mr-5 font-heading text-4xl font-medium text-red-400 font-cursive">{index}</span>
-                        <h4 className="font-heading text-4xl font-medium text-black-90 group-hover:text-red-400 font-cursive">
+                        <h4 className="font-heading text-2xl md:text-4xl font-medium text-black-90 group-hover:text-red-400 font-cursive">
                             <span className="block">{firstSpan}</span>
                             <span>{secondSpan}</span>
                         </h4>
