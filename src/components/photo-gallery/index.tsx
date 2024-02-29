@@ -6,7 +6,7 @@ import "yet-another-react-lightbox/styles.css";
 
 export default function App() {
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(5);
+  const [currentImage, setCurrentImage] = useState(0);
 
   const handleClick = (index: number, item: CustomImage) => {
     setCurrentImage(index)
@@ -19,6 +19,7 @@ export default function App() {
         images={images}
         onClick={handleClick}
         enableImageSelection={false}
+        rowHeight={300}
       />
       <Lightbox
         open={viewerIsOpen}

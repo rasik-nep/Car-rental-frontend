@@ -15,8 +15,8 @@ function App() {
       <Navbar />
       <Hero title={"Explore with Ease"} subtitle={"Affordable, reliable vehicle rentals at your service."} image={'./neta-back.jpg'} full={true} />
       <About />
-      <Services />
       <PhotoGallery />
+      <Services />
       {/* <BookNow /> */}
       <Price />
       <Testimonials />
