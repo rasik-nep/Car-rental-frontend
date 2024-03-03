@@ -1,28 +1,25 @@
-import Navbar from "./components/layout/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Testimonials from "./components/testimonials";
-import Services from "./components/services";
-import PhotoGallery from "./components/photo-gallery";
-// import BookNow from "./components/BookNow";
-import Price from "./components/price";
-import Footer from "./components/layout/Footer";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Protected from "./components/Protected";
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
-
   return (
-    <div className="text-black" >
-      <Navbar />
-      <Hero title={"Explore with Ease"} subtitle={"Affordable, reliable vehicle rentals at your service."} image={'./neta-back.jpg'} full={true} />
-      <About />
-      <PhotoGallery />
-      <Services />
-      {/* <BookNow /> */}
-      <Price />
-      <Testimonials />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Protected />} >
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route >
+      </Routes>
+    </Router>
   );
 }
-
 export default App;
