@@ -16,7 +16,7 @@ export default function Dashboard({ token }: { token: string }) {
     }).then(() => {
       alert("Data saved successfully!")
     }).catch((error) => {
-      alert("Error saving data: ")
+      alert("Error saving data: " + error)
     })
   }
 
