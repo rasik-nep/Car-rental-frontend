@@ -9,6 +9,7 @@ import Price from "../components/price";
 import Footer from "../components/layout/Footer";
 
 export default function Home() {
+    console.log("env   " + process.env.REACT_APP_FIREBASE_API_KEY)
     return (
         <div className="text-black" >
             <Navbar />
