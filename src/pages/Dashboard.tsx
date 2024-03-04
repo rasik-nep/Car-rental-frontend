@@ -3,6 +3,7 @@ import app from "../config/firebase-info"
 import { getDatabase, ref, set, push, get } from "firebase/database"
 
 export default function Dashboard({ token }: { token: string }) {
+  console.log("Token: ", token)
   const [text1, setText1] = useState("")
   const [text2, setText2] = useState("")
 
