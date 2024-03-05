@@ -13,14 +13,18 @@ import { useState, useEffect } from "react";
 import app from "../config/firebase-info"
 import { getDatabase, ref, get } from "firebase/database"
 
+// text from const
+import { PAGE_TEXT, TESTIMONIALS } from "../constants";
+
 // using render-as-you-fetch
 export default function Home() {
-    const [data, setData] = useState({});
+    // const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-    const [heroTitle, setHeroTitle] = useState("");
+    // const [heroTitle, setHeroTitle] = useState("");
 
     useEffect(() => {
         fetchData();
+        // console.log(data);
     }, []);
 
     async function fetchData() {
@@ -28,13 +32,8 @@ export default function Home() {
         const dbRef = ref(db, 'data');
         const snapshot = await get(dbRef);
         if (snapshot.exists()) {
-            const data: { testText1: string, testText2: string }[] = Object.values(snapshot.val());
-            console.log(data);
-            setData(data);
-            const firstItem = data[0]; // Assuming you want to set heroTitle based on the first item in the array
-            if (firstItem) {
-                setHeroTitle(firstItem.testText1);
-            }
+            // const data: { testText1: string, testText2: string }[] = Object.values(snapshot.val());
+            // setData(data);
             setIsLoading(false);
         } else {
             console.log("No data available");
@@ -44,17 +43,17 @@ export default function Home() {
     if (isLoading) {
         return <div>Loading...</div>;
     }
-    
+
     return (
         <div className="text-black" >
             <Navbar />
-            <Hero title={"Explore with Ease"} subtitle={"Affordable, reliable vehicle rentals at your service."} image={'./neta-back.jpg'} full={true} />
-            <About />
+            <Hero title={PAGE_TEXT.hero_title_text} subtitle={PAGE_TEXT.hero_subtitle_text} image={'./neta-back.jpg'} full={true} />
+            <About title={PAGE_TEXT.about_title} text={PAGE_TEXT.about_text} />
             <PhotoGallery />
-            <Services />
+            <Services title={PAGE_TEXT.service_title} text={PAGE_TEXT.services_text} />
             {/* <BookNow /> */}
-            <Price />
-            <Testimonials />
+            <Price title={PAGE_TEXT.price_title} text={PAGE_TEXT.price_text} />
+            <Testimonials title={PAGE_TEXT.testimonials_title} testimonials_arr={TESTIMONIALS} />
             <Footer />
         </div>
     )

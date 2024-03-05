@@ -1,6 +1,44 @@
 // socials.js
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
+// text
+export const PAGE_TEXT ={
+  hero_title_text:"Explore with Ease",
+  hero_subtitle_text:"Affordable, reliable vehicle rentals at your service.",
+  about_title:"About Us",
+  about_text:"Welcome to Shan Vehicle Rental, your trusted partner for seamless journeys in Kathmandu and beyond. With a commitment to reliability and comfort, we offer a diverse fleet of well-maintained vehicles to explore Nepal's breathtaking landscapes. From bustling city streets to serene mountain retreats, Shan Vehicle Rental is your key to hassle-free travel. Discover the freedom of the open road with us, where every trip is a memorable adventure. Your journey begins here, with Shan Vehicle Rental—your premier choice for car rentals in Kathmandu and across the beautiful landscapes of Nepal.",
+  service_title:"Our Services",
+  services_text:"Your go-to destination for reliable and convenient car rental services. Our commitment is to provide you with seamless experiences and quality vehicles for all your travel needs.",
+  price_title:"Our Prices",
+  price_text:"Explore our diverse range of vehicles and flexible rental options to find the perfect match for your travel plans. Our transparent pricing ensures that you have full visibility into the costs associated with your rental, with no hidden fees. At Shan Vehicle Rental, we are dedicated to providing you with a seamless and personalized experience, from the moment you book your vehicle to the end of your journey. Discover the freedom to explore with ease, comfort, and confidence, only with Shan Vehicle Rental.",
+  testimonials_title:"Don't take our words for it",
+}
+
+// testimonials
+export const TESTIMONIALS = [
+  {
+    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).jpg",
+    name: "John Smith",
+    job: "Marketing Specialist",
+    review_desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.",
+    review_star: 2
+  },
+  {
+    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).jpg",
+    name: "Maria Smantha",
+    job: "Web Developer",
+    review_desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic.",
+    review_star: 5
+  },
+  {
+    img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).jpg",
+    name: "Lisa Cudrow",
+    job: "Graphic Designer",
+    review_desc: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid commodi.",
+    review_star: 3
+  }
+]
+
 // NAVIGATION
 export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Home' },

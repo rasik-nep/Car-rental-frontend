@@ -11,7 +11,9 @@ export default function Dashboard({ token }: { token: string }) {
     const db = getDatabase(app);
     const newDocRef = push(ref(db, 'data'));
     set(newDocRef, {
-      testText1: text1,
+      hero_title_text: text1,
+      hero_subtitle_text:text2,
+      hero_img:'',
       testText2: text2,
     }).then(() => {
       alert("Data saved successfully!")
@@ -33,7 +35,7 @@ export default function Dashboard({ token }: { token: string }) {
 
   return (
     <div>
-      <p>Dashboard 1</p>
+      <p>Dashboard</p>
 
       <input type="text" value={text1} onChange={(e) => setText1(e.target.value)} />
       <input type="text" value={text2} onChange={(e) => setText2(e.target.value)} />

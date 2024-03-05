@@ -1,119 +1,36 @@
 import Individual_card from "./individual_card"
 
-export default function Testimonials() {
+type Testimonial_props = {
+    title: string,
+    testimonials_arr: {
+        img: string,
+        name: string,
+        job: string,
+        review_desc: string,
+        review_star: number
+    }[]
+}
+
+export default function Testimonials({ title, testimonials_arr }: Testimonial_props) {
     return (
         <section>
             <div className="full-container mt-12 mx-auto md:px-6 py-10">
                 <section className="mb-12 text-center">
-                    <h2 className="mb-12 text-3xl font-bold">Don't take our words for it</h2>
+                    <h2 className="mb-12 text-3xl font-bold">{title}</h2>
                     <div className="grid gap-x-6 md:grid-cols-3 lg:gap-x-12">
-                        <Individual_card />
-                        <Individual_card />
-                        <Individual_card />
+                        {testimonials_arr.map((testimonial, i) => (
+                            <Individual_card
+                                img={testimonial.img}
+                                name={testimonial.name}
+                                job={testimonial.job}
+                                review_desc={testimonial.review_desc}
+                                review_star={testimonial.review_star}
+                                key={i}
+                            />
+                        ))}
                     </div>
                 </section>
             </div>
         </section>
     )
 }
-
-{/* <div className="mb-12 md:mb-0">
-                            <div className="mb-6 flex justify-center">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).jpg"
-                                    className="w-32 rounded-full shadow-lg dark:shadow-black/20" />
-                            </div>
-                            <h5 className="mb-2 text-lg font-bold">Maria Smantha</h5>
-                            <h6 className="mb-4 font-medium text-primary dark:text-primary-400">
-                                Web Developer
-                            </h6>
-                            <p className="mb-4">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos
-                                id officiis hic tenetur quae quaerat ad velit ab hic.
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="inline-block w-6">
-                                    <path fill="currentColor"
-                                        d="M580 556h160V396H580v160Zm-360 0h160V396H220v160Zm406 220 80-160H520V336h280v288l-76 152h-98Zm-360 0 80-160H160V336h280v288l-76 152h-98Zm34-300Zm360 0Z" />
-                                </svg>
-                            </p>
-                            <ul className="mb-0 flex justify-center">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="w-5 text-warning">
-                                        <path fill="currentColor"
-                                            d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="w-5 text-warning">
-                                        <path fill="currentColor"
-                                            d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="w-5 text-warning">
-                                        <path fill="currentColor"
-                                            d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="w-5 text-warning">
-                                        <path fill="currentColor"
-                                            d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="w-5 text-warning">
-                                        <path fill="currentColor"
-                                            d="m480 757 157 95-42-178 138-120-182-16-71-168v387ZM233 976l65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                    </svg>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="mb-12 md:mb-0">
-                            <div className="mb-6 flex justify-center">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).jpg"
-                                    className="w-32 rounded-full shadow-lg dark:shadow-black/20" />
-                            </div>
-                            <h5 className="mb-2 text-lg font-bold">Lisa Cudrow</h5>
-                            <h6 className="mb-4 font-medium text-primary dark:text-primary-400">
-                                Graphic Designer
-                            </h6>
-                            <p className="mb-4">
-                                Ut enim ad minima veniam, quis nostrum exercitationem ullam
-                                corporis suscipit laboriosam, nisi ut aliquid commodi.
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="inline-block w-6">
-                                    <path fill="currentColor"
-                                        d="M580 556h160V396H580v160Zm-360 0h160V396H220v160Zm406 220 80-160H520V336h280v288l-76 152h-98Zm-360 0 80-160H160V336h280v288l-76 152h-98Zm34-300Zm360 0Z" />
-                                </svg>
-                            </p>
-                            <ul className="mb-0 flex justify-center">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="w-5 text-warning">
-                                        <path fill="currentColor"
-                                            d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="w-5 text-warning">
-                                        <path fill="currentColor"
-                                            d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="w-5 text-warning">
-                                        <path fill="currentColor"
-                                            d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="w-5 text-warning">
-                                        <path fill="currentColor"
-                                            d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" className="w-5 text-warning">
-                                        <path fill="currentColor"
-                                            d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                                    </svg>
-                                </li>
-                            </ul>
-                        </div> */}
