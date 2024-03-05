@@ -29,5 +29,8 @@ export default {
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
-
+# Learned
+firebase architecture
 https://vercel.com/docs/projects/environment-variables
+render-as-you-fetch
+CMS dashboard for the admin
