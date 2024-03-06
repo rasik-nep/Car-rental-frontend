@@ -4,17 +4,14 @@ type TextComponentProps = {
     secondSpan: string;
     descriptionShort: string;
     descriptionLong: string;
-    imgLink: string;
 }
 
 import { useState } from "react";
 
-export default function TextComponent({ index, firstSpan, secondSpan, descriptionShort, descriptionLong, imgLink }: TextComponentProps) {
+export default function TextComponent({ index, firstSpan, secondSpan, descriptionShort, descriptionLong }: TextComponentProps) {
     const [isClicked, setIsClicked] = useState(false)
     function handleDivClick() {
         setIsClicked(!isClicked)
-        console.log(imgLink)
-        console.log("clicked")
     }
     return (
         <div className="group block cursor-pointer mb-14 pb-8 border-b-2 border-black-70 border-opacity-10 hover:border-opacity-100 items-center transition duration-300" onClick={handleDivClick} key={firstSpan}>

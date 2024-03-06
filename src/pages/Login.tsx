@@ -18,7 +18,6 @@ export default function Login() {
                 setAuthState(true);
                 window.localStorage.setItem('auth', 'true')
                 user.getIdToken().then((token) => {
-                    console.log(token)
                     setToken(token)
                 })
             } else {
@@ -30,10 +29,10 @@ export default function Login() {
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         try {
-            const userCreditional = await signInWithEmailAndPassword(auth, email, password);
+            await signInWithEmailAndPassword(auth, email, password);
             setAuthState(true)
             window.localStorage.setItem('auth', 'true')
-            console.log(userCreditional)
+            // console.log(userCreditional)
         } catch (err) {
             console.log(err)
         }

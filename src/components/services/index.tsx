@@ -1,7 +1,20 @@
 import TextComponent from "./TextComponent";
-import { SERVICES_DISPLAY_SECTION } from "../../constants"
 
-export default function Services({ title, text }: { title: string, text: string }) {
+type ServicesDisplaySectionTextProps={
+    index: string,
+    firstSpan: string,
+    secondSpan: string,
+    descriptionShort: string,
+    descriptionLong: string
+}
+
+type ServicesProps = {
+    title: string,
+    text: string,
+    servicesDisplaySectionText: ServicesDisplaySectionTextProps[]
+}
+
+export default function Services({ title, text, servicesDisplaySectionText }: ServicesProps) {
     return (
         <section className="relative py-6 md:py-6 bg-body overflow-hidden">
             <div className="relative container mx-auto px-4">
@@ -10,8 +23,8 @@ export default function Services({ title, text }: { title: string, text: string 
                     <p className="max-w-xl text-xl text-gray-500 tracking-tight">{text}</p>
                 </div>
                 <div className="relative">
-                    {SERVICES_DISPLAY_SECTION.map((social) => (
-                        <TextComponent index={social.index} firstSpan={social.firstSpan} secondSpan={social.secondSpan} descriptionShort={social.descriptionShort} descriptionLong={social.descriptionLong} imgLink={social.imgLink} key={social.index} />
+                    {servicesDisplaySectionText.map((social) => (
+                        <TextComponent index={social.index} firstSpan={social.firstSpan} secondSpan={social.secondSpan} descriptionShort={social.descriptionShort} descriptionLong={social.descriptionLong} key={social.index} />
                     ))}
                 </div>
             </div>

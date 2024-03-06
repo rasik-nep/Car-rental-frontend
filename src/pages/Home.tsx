@@ -21,6 +21,7 @@ export default function Home() {
     // const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     // const [heroTitle, setHeroTitle] = useState("");
+    const [servicesDisplaySectionText, setServicesDisplaySectionText] = useState([]);
 
     useEffect(() => {
         fetchData();
@@ -32,7 +33,8 @@ export default function Home() {
         const dbRef = ref(db, 'data');
         const snapshot = await get(dbRef);
         if (snapshot.exists()) {
-            // const data: { testText1: string, testText2: string }[] = Object.values(snapshot.val());
+            const data = snapshot.val();
+            setServicesDisplaySectionText(Object.values(data.services))
             // setData(data);
             setIsLoading(false);
         } else {
@@ -50,7 +52,7 @@ export default function Home() {
             <Hero title={PAGE_TEXT.hero_title_text} subtitle={PAGE_TEXT.hero_subtitle_text} image={'./neta-back.jpg'} full={true} />
             <About title={PAGE_TEXT.about_title} text={PAGE_TEXT.about_text} />
             <PhotoGallery />
-            <Services title={PAGE_TEXT.service_title} text={PAGE_TEXT.services_text} />
+            <Services title={PAGE_TEXT.service_title} text={PAGE_TEXT.services_text} servicesDisplaySectionText={servicesDisplaySectionText} />
             {/* <BookNow /> */}
             <Price title={PAGE_TEXT.price_title} text={PAGE_TEXT.price_text} />
             <Testimonials title={PAGE_TEXT.testimonials_title} testimonials_arr={TESTIMONIALS} />
