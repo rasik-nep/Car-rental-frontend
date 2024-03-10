@@ -1,6 +1,7 @@
 // socials.js
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
+// done
 // text
 export const PAGE_TEXT ={
   hero_title_text:"Explore with Ease",
@@ -14,6 +15,7 @@ export const PAGE_TEXT ={
   testimonials_title:"Don't take our words for it",
 }
 
+// done
 // testimonials
 export const TESTIMONIALS = [
   {
@@ -65,6 +67,7 @@ export const SOCIALS = {
     ],
 };
 
+// done
 export const SERVICES_DISPLAY_SECTION=[
   {
     index:"01",
@@ -89,6 +92,7 @@ export const SERVICES_DISPLAY_SECTION=[
   }
 ]
 
+// partially done
 export const PRICE_LIST=[
   {
     id: 0,

@@ -10,8 +10,6 @@ import Footer from "../components/layout/Footer";
 
 import { useState, useEffect } from "react";
 // get from database
-import app from "../config/firebase-info"
-import { getDatabase, ref, get } from "firebase/database"
 
 // text from const
 import { PAGE_TEXT, TESTIMONIALS } from "../constants";
@@ -29,17 +27,10 @@ export default function Home() {
     }, []);
 
     async function fetchData() {
-        const db = getDatabase(app);
-        const dbRef = ref(db, 'data');
-        const snapshot = await get(dbRef);
-        if (snapshot.exists()) {
-            const data = snapshot.val();
-            setServicesDisplaySectionText(Object.values(data.services))
-            // setData(data);
-            setIsLoading(false);
-        } else {
-            console.log("No data available");
-        }
+        const response = await fetch('http://localhost:1337/api/page-text');
+        const data = await response.json();
+        console.log(data.data.attributes);
+        setIsLoading(false);
     }
 
     if (isLoading) {

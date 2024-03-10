@@ -1,5 +1,5 @@
 import Home from "./pages/Home";
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 
 import {
   BrowserRouter as Router,
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/page/admin" element={<Login />} />
+        {/* <Route path="/page/admin" element={<Login />} /> */}
       </Routes>
     </Router>
   );
