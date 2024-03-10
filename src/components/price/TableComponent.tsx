@@ -1,24 +1,29 @@
 import { CompactTable } from '@table-library/react-table-library/compact';
-import { PRICE_LIST } from '../../constants';
+
+type TableComponentProps = {
+    prices: Node[];
+}
 
 interface Node {
     id: number;
-    name: string;
-    price: string;
+    attributes: {
+        name: string;
+        price: number;
+    }
 }
 
-const nodes: Node[] = PRICE_LIST;
+export default function TableComponent({ prices }: TableComponentProps) {
+    console.log(prices)
+    const nodes: Node[] = prices;
 
-const COLUMNS = [
-    { label: 'SN', renderCell: (item: Node) => item.id + 1 },
-    {
-        label: 'Name',
-        renderCell: (item: Node) => item.name
-    },
-    { label: 'Price (Per day)', renderCell: (item: Node) => item.price },
-];
-
-export default function TableComponent() {
+    const COLUMNS = [
+        { label: 'SN', renderCell: (item: Node) => item.id },
+        {
+            label: 'Name',
+            renderCell: (item: Node) => item.attributes.name
+        },
+        { label: 'Price (Per day)', renderCell: (item: Node) => item.attributes.price },
+    ];
     const data = { nodes };
     return <CompactTable columns={COLUMNS} data={data} />;
 };

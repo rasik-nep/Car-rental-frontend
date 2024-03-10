@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 import Navbar from "../components/layout/Navbar";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -8,29 +11,68 @@ import PhotoGallery from "../components/photo-gallery";
 import Price from "../components/price";
 import Footer from "../components/layout/Footer";
 
-import { useState, useEffect } from "react";
-// get from database
-
 // text from const
-import { PAGE_TEXT, TESTIMONIALS } from "../constants";
+import { TESTIMONIALS } from "../constants";
+
+type TextDataType = {
+    hero_title: string;
+    hero_subtitle: string;
+    about: string;
+    about_desc: string;
+    service: string;
+    services_desc: string;
+    price: string;
+    price_desc: string;
+    testimonials: string;
+}
+type TestimonialsDataType = {
+    img: string;
+    name: string;
+    job: string;
+    review_desc: string;
+    review_star: number;
+}
 
 // using render-as-you-fetch
 export default function Home() {
-    // const [data, setData] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
-    // const [heroTitle, setHeroTitle] = useState("");
+    const [textData, setTextData] = useState<TextDataType>({
+        hero_title: "",
+        hero_subtitle: "",
+        about: "",
+        about_desc: "",
+        service: "",
+        services_desc: "",
+        price: "",
+        price_desc: "",
+        testimonials: ""
+    });
+    const [testimonials, setTestimonials] = useState<TestimonialsDataType[]>(
+        [{ img: "", name: "", job: "", review_desc: "", review_star: 0 }]
+    );
     const [servicesDisplaySectionText, setServicesDisplaySectionText] = useState([]);
+    const [prices ,setPrices] = useState([]);
+
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetchData();
-        // console.log(data);
     }, []);
 
     async function fetchData() {
-        const response = await fetch('http://localhost:1337/api/page-text');
-        const data = await response.json();
-        console.log(data.data.attributes);
-        setIsLoading(false);
+        axios.all([
+            axios.get('http://localhost:1337/api/page-text'),
+            axios.get('http://localhost:1337/api/prices'),
+            axios.get('http://localhost:1337/api/reviews'),
+            axios.get('http://localhost:1337/api/service-sections')
+        ])
+            .then(axios.spread((textData, prices, reviews, serviceSections) => {
+                setTextData(textData.data.data.attributes);
+                console.log(prices.data.data)
+                setPrices(prices.data.data);
+                // console.log(reviews.data.data);
+                setServicesDisplaySectionText(serviceSections.data.data);
+            }))
+        setIsLoading(false)
     }
 
     if (isLoading) {
@@ -40,13 +82,13 @@ export default function Home() {
     return (
         <div className="text-black" >
             <Navbar />
-            <Hero title={PAGE_TEXT.hero_title_text} subtitle={PAGE_TEXT.hero_subtitle_text} image={'./neta-back.jpg'} full={true} />
-            <About title={PAGE_TEXT.about_title} text={PAGE_TEXT.about_text} />
+            <Hero title={textData.hero_title} subtitle={textData.hero_subtitle} image={'./neta-back.jpg'} full={true} />
+            <About title={textData.about} text={textData.about_desc} />
             <PhotoGallery />
-            <Services title={PAGE_TEXT.service_title} text={PAGE_TEXT.services_text} servicesDisplaySectionText={servicesDisplaySectionText} />
+            <Services title={textData.service} text={textData.services_desc} servicesDisplaySectionText={servicesDisplaySectionText} />
             {/* <BookNow /> */}
-            <Price title={PAGE_TEXT.price_title} text={PAGE_TEXT.price_text} />
-            <Testimonials title={PAGE_TEXT.testimonials_title} testimonials_arr={TESTIMONIALS} />
+            <Price title={textData.price} text={textData.price_desc} prices ={prices}/>
+            <Testimonials title={textData.testimonials} testimonials_arr={TESTIMONIALS} />
             <Footer />
         </div>
     )

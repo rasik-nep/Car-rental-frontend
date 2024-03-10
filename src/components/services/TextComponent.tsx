@@ -1,5 +1,5 @@
 type TextComponentProps = {
-    index: string;
+    index: number;
     firstSpan: string;
     secondSpan: string;
     descriptionShort: string;

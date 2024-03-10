@@ -1,11 +1,15 @@
 import TextComponent from "./TextComponent";
 
-type ServicesDisplaySectionTextProps={
-    index: string,
-    firstSpan: string,
-    secondSpan: string,
+type ServicesAttributes = {
+    first_span: string,
+    second_span: string,
     descriptionShort: string,
     descriptionLong: string
+}
+
+type ServicesDisplaySectionTextProps = {
+    id: number,
+    attributes: ServicesAttributes
 }
 
 type ServicesProps = {
@@ -24,7 +28,7 @@ export default function Services({ title, text, servicesDisplaySectionText }: Se
                 </div>
                 <div className="relative">
                     {servicesDisplaySectionText.map((social) => (
-                        <TextComponent index={social.index} firstSpan={social.firstSpan} secondSpan={social.secondSpan} descriptionShort={social.descriptionShort} descriptionLong={social.descriptionLong} key={social.index} />
+                        <TextComponent index={social.id} firstSpan={social.attributes.first_span} secondSpan={social.attributes.second_span} descriptionShort={social.attributes.descriptionShort} descriptionLong={social.attributes.descriptionLong} key={social.id} />
                     ))}
                 </div>
             </div>
