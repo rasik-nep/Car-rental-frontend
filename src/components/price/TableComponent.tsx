@@ -13,7 +13,6 @@ interface Node {
 }
 
 export default function TableComponent({ prices }: TableComponentProps) {
-    console.log(prices)
     const nodes: Node[] = prices;
 
     const COLUMNS = [

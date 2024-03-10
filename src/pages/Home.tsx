@@ -11,9 +11,6 @@ import PhotoGallery from "../components/photo-gallery";
 import Price from "../components/price";
 import Footer from "../components/layout/Footer";
 
-// text from const
-import { TESTIMONIALS } from "../constants";
-
 type TextDataType = {
     hero_title: string;
     hero_subtitle: string;
@@ -24,13 +21,6 @@ type TextDataType = {
     price: string;
     price_desc: string;
     testimonials: string;
-}
-type TestimonialsDataType = {
-    img: string;
-    name: string;
-    job: string;
-    review_desc: string;
-    review_star: number;
 }
 
 // using render-as-you-fetch
@@ -46,11 +36,9 @@ export default function Home() {
         price_desc: "",
         testimonials: ""
     });
-    const [testimonials, setTestimonials] = useState<TestimonialsDataType[]>(
-        [{ img: "", name: "", job: "", review_desc: "", review_star: 0 }]
-    );
+    const [testimonials, setTestimonials] = useState([]);
     const [servicesDisplaySectionText, setServicesDisplaySectionText] = useState([]);
-    const [prices ,setPrices] = useState([]);
+    const [prices, setPrices] = useState([]);
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -62,14 +50,13 @@ export default function Home() {
         axios.all([
             axios.get('http://localhost:1337/api/page-text'),
             axios.get('http://localhost:1337/api/prices'),
-            axios.get('http://localhost:1337/api/reviews'),
+            axios.get('http://localhost:1337/api/testimonials?populate=*'),
             axios.get('http://localhost:1337/api/service-sections')
         ])
-            .then(axios.spread((textData, prices, reviews, serviceSections) => {
+            .then(axios.spread((textData, prices, testimonials, serviceSections) => {
                 setTextData(textData.data.data.attributes);
-                console.log(prices.data.data)
                 setPrices(prices.data.data);
-                // console.log(reviews.data.data);
+                setTestimonials(testimonials.data.data);
                 setServicesDisplaySectionText(serviceSections.data.data);
             }))
         setIsLoading(false)
@@ -87,8 +74,8 @@ export default function Home() {
             <PhotoGallery />
             <Services title={textData.service} text={textData.services_desc} servicesDisplaySectionText={servicesDisplaySectionText} />
             {/* <BookNow /> */}
-            <Price title={textData.price} text={textData.price_desc} prices ={prices}/>
-            <Testimonials title={textData.testimonials} testimonials_arr={TESTIMONIALS} />
+            <Price title={textData.price} text={textData.price_desc} prices={prices} />
+            <Testimonials title={textData.testimonials} testimonials_arr={testimonials} />
             <Footer />
         </div>
     )

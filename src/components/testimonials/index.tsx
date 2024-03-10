@@ -3,11 +3,14 @@ import Individual_card from "./individual_card"
 type Testimonial_props = {
     title: string,
     testimonials_arr: {
-        img: string,
-        name: string,
-        job: string,
-        review_desc: string,
-        review_star: number
+        id: number;
+        attributes: {
+            name: string,
+            job: string,
+            review_desc: string,
+            review_star: number,
+            img?: any
+        }
     }[]
 }
 
@@ -20,11 +23,11 @@ export default function Testimonials({ title, testimonials_arr }: Testimonial_pr
                     <div className="grid gap-x-6 md:grid-cols-3 lg:gap-x-12">
                         {testimonials_arr.map((testimonial, i) => (
                             <Individual_card
-                                img={testimonial.img}
-                                name={testimonial.name}
-                                job={testimonial.job}
-                                review_desc={testimonial.review_desc}
-                                review_star={testimonial.review_star}
+                                img={testimonial.attributes.img}
+                                name={testimonial.attributes.name}
+                                job={testimonial.attributes.job}
+                                review_desc={testimonial.attributes.review_desc}
+                                review_star={testimonial.attributes.review_star}
                                 key={i}
                             />
                         ))}

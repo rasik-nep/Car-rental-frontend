@@ -2,13 +2,13 @@ type TextComponentProps = {
     index: number;
     firstSpan: string;
     secondSpan: string;
-    descriptionShort: string;
-    descriptionLong: string;
+    description_short: string;
+    description_long: string;
 }
 
 import { useState } from "react";
 
-export default function TextComponent({ index, firstSpan, secondSpan, descriptionShort, descriptionLong }: TextComponentProps) {
+export default function TextComponent({ index, firstSpan, secondSpan, description_short, description_long }: TextComponentProps) {
     const [isClicked, setIsClicked] = useState(false)
     function handleDivClick() {
         setIsClicked(!isClicked)
@@ -27,7 +27,7 @@ export default function TextComponent({ index, firstSpan, secondSpan, descriptio
                 </div>
                 <div className="w-full lg:w-6/12 px-4 mb-8 lg:mb-0">
                     <div className="relative flex items-center">
-                        <p className="max-w-md ml-auto text-right text-black-90 tracking-tight leading-snug font-cursive">{descriptionShort}</p>
+                        <p className="max-w-md ml-auto text-right text-black-90 tracking-tight leading-snug font-cursive">{description_short}</p>
                     </div>
                 </div>
                 <div className="w-full lg:w-2/12 px-4 text-right">
@@ -40,7 +40,7 @@ export default function TextComponent({ index, firstSpan, secondSpan, descriptio
                 </div>
             </div>
             {isClicked && <div className="w-full flex items-center px-10 lg:py-4">
-                <p className="max-w-[40rem] mr-auto text-left text-black-90 tracking-tight leading-snug md:ml-20">{descriptionLong}</p>
+                <p className="max-w-[40rem] mr-auto text-left text-black-90 tracking-tight leading-snug md:ml-20">{description_long}</p>
                 {/* <img src={imgLink} alt="Image clicked" className="h-[20rem] w-[30rem] p-6" /> */}
             </div>}
 
