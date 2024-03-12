@@ -1,4 +1,4 @@
-export default function About({ title, text }: { title: string, text: string }) {
+export default function About({ title, text }: { title: string, text?: string }) {
     return (
         <section className="full-container bg-white text-black p-7" id="about">
             <div className="">

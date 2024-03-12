@@ -41,14 +41,7 @@ export const TESTIMONIALS = [
   }
 ]
 
-// NAVIGATION
-export const NAV_LINKS = [
-  { href: '/', key: 'home', label: 'Home' },
-  { href: '/about', key: 'about', label: 'About' },
-  { href: '/services', key: 'services', label: 'Services' },
-  { href: '/contact_us', key: 'contact_us', label: 'Contact Us' },
-];
-
+// done
 export const FOOTER_CONTACTS={
   title: 'Contact',
   content:[
@@ -58,6 +51,7 @@ export const FOOTER_CONTACTS={
   ]
 }
 
+//done
 export const SOCIALS = {
     title: 'Social',
     links: [

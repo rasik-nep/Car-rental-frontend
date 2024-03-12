@@ -1,6 +1,24 @@
-import { SOCIALS, FOOTER_CONTACTS } from "../../constants";
+import React from "react";
+import { SOCIALS } from "../../constants";
+import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
-export default function Footer() {
+export default function Footer({ contactDetails }: any) {
+    const FooterContacts = {
+        title: 'Contact',
+        content: [
+            { title: "Location", label: contactDetails.location },
+            { title: "Phone", label: contactDetails.phone },
+            { title: "Email", label: contactDetails.email },
+        ]
+    }
+    const SocialsLink = {
+        title: 'Social',
+        links: [
+            contactDetails.facebook ? { label: 'Facebook', href: contactDetails.facebook, logo: FaFacebook } : null,
+            contactDetails.instagram ? { label: 'Instagram', href: contactDetails.instagram, logo: FaInstagram } : null,
+            contactDetails.whatsapp ? { label: 'WhatsApp', href: contactDetails.whatsapp, logo: FaWhatsapp } : null,
+        ],
+    }
     return (
         <footer className="flexCenter bg-black-90 pt-5 bg-gray-900 text-white">
             <div className="padding-container full-container flex w-full flex-col gap-14">
@@ -11,19 +29,21 @@ export default function Footer() {
                     <div className='flex flex-wrap gap-10 sm:justify-between '>
                         <FooterColumn title={SOCIALS.title}>
                             <ul className="regular-14 flex gap-4">
-                                {SOCIALS.links.map((link) => (
-                                    <div key={link.label}>
-                                        <a href={link.href} target="_blank" className="text-xl hover:text-red-400 ">
-                                            <link.logo />
-                                        </a>
-                                    </div>
+                                {SocialsLink.links.map((link, index) => (
+                                    <React.Fragment key={index}>
+                                        {link && <div key={link.label}>
+                                            <a href={link.href} target="_blank" className="text-xl hover:text-red-400 ">
+                                                <link.logo />
+                                            </a>
+                                        </div>}
+                                    </React.Fragment>
                                 ))}
                             </ul>
                         </FooterColumn>
                     </div>
                     <div className='flex flex-wrap gap-10 sm:justify-between'>
-                        <FooterColumn title={FOOTER_CONTACTS.title}>
-                            {FOOTER_CONTACTS.content.map((contact) => (
+                        <FooterColumn title={FooterContacts.title}>
+                            {FooterContacts.content.map((contact) => (
                                 <div key={contact.title}>
                                     <b>{contact.title}: </b>
                                     <span>{contact.label}</span>

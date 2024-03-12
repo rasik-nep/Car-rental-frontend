@@ -14,7 +14,7 @@ type ServicesDisplaySectionTextProps = {
 
 type ServicesProps = {
     title: string,
-    text: string,
+    text?: string,
     servicesDisplaySectionText: ServicesDisplaySectionTextProps[]
 }
 

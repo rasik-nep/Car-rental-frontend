@@ -13,14 +13,22 @@ import Footer from "../components/layout/Footer";
 
 type TextDataType = {
     hero_title: string;
-    hero_subtitle: string;
+    hero_subtitle?: string;
     about: string;
-    about_desc: string;
+    about_desc?: string;
     service: string;
-    services_desc: string;
+    services_desc?: string;
     price: string;
-    price_desc: string;
+    price_desc?: string;
     testimonials: string;
+}
+type ContactDetailsType = {
+    facebook?: string;
+    Instagram?: string;
+    whatsapp?: string;
+    email: string;
+    location: string;
+    phone: string;
 }
 
 // using render-as-you-fetch
@@ -36,6 +44,14 @@ export default function Home() {
         price_desc: "",
         testimonials: ""
     });
+    const [contactDetails, setContactDetails] = useState<ContactDetailsType>({
+        facebook: "",
+        Instagram: "",
+        whatsapp: "",
+        email: "",
+        location: "",
+        phone: ""
+    })
     const [testimonials, setTestimonials] = useState([]);
     const [servicesDisplaySectionText, setServicesDisplaySectionText] = useState([]);
     const [prices, setPrices] = useState([]);
@@ -51,15 +67,17 @@ export default function Home() {
             axios.get('http://localhost:1337/api/page-text'),
             axios.get('http://localhost:1337/api/prices'),
             axios.get('http://localhost:1337/api/testimonials?populate=*'),
-            axios.get('http://localhost:1337/api/service-sections')
+            axios.get('http://localhost:1337/api/service-sections'),
+            axios.get('http://localhost:1337/api/contact-detail')
         ])
-            .then(axios.spread((textData, prices, testimonials, serviceSections) => {
+            .then(axios.spread((textData, prices, testimonials, serviceSections, contact_details) => {
                 setTextData(textData.data.data.attributes);
                 setPrices(prices.data.data);
                 setTestimonials(testimonials.data.data);
                 setServicesDisplaySectionText(serviceSections.data.data);
+                setContactDetails(contact_details.data.data.attributes);
+                setIsLoading(false)
             }))
-        setIsLoading(false)
     }
 
     if (isLoading) {
@@ -76,7 +94,7 @@ export default function Home() {
             {/* <BookNow /> */}
             <Price title={textData.price} text={textData.price_desc} prices={prices} />
             <Testimonials title={textData.testimonials} testimonials_arr={testimonials} />
-            <Footer />
+            <Footer contactDetails={contactDetails} />
         </div>
     )
 }

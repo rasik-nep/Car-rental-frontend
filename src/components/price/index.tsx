@@ -10,7 +10,7 @@ type PriceList = {
 
 type PriceProps = {
     title: string;
-    text: string;
+    text?: string;
     prices: PriceList[];
 }
 
