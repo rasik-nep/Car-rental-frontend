@@ -16,7 +16,7 @@ export default function Footer({ contactDetails }: any) {
         links: [
             contactDetails.facebook ? { label: 'Facebook', href: contactDetails.facebook, logo: FaFacebook } : null,
             contactDetails.instagram ? { label: 'Instagram', href: contactDetails.instagram, logo: FaInstagram } : null,
-            contactDetails.whatsapp ? { label: 'WhatsApp', href: contactDetails.whatsapp, logo: FaWhatsapp } : null,
+            contactDetails.whatsapp ? { label: 'WhatsApp', href: `https://wa.me/${contactDetails.whatsapp}?text=Reserve a car`, logo: FaWhatsapp } : null,
         ],
     }
     return (
