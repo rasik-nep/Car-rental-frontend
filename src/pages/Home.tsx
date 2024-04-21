@@ -31,6 +31,13 @@ type ContactDetailsType = {
     phone: string;
 }
 
+type HeroDataType = {
+    image: string;
+    welcome: string;
+    company_name: string;
+    company_slogan: string;
+}
+
 // using render-as-you-fetch
 export default function Home() {
     const [textData, setTextData] = useState<TextDataType>({
@@ -52,6 +59,13 @@ export default function Home() {
         location: "",
         phone: ""
     })
+
+    const [heroData, setHeroData] = useState<HeroDataType>({
+        image: "",
+        welcome: "",
+        company_name: "",
+        company_slogan: ""
+    })
     const [testimonials, setTestimonials] = useState([]);
     const [servicesDisplaySectionText, setServicesDisplaySectionText] = useState([]);
     const [prices, setPrices] = useState([]);
@@ -68,14 +82,16 @@ export default function Home() {
             axios.get('http://localhost:1337/api/prices'),
             axios.get('http://localhost:1337/api/testimonials?populate=*'),
             axios.get('http://localhost:1337/api/service-sections'),
-            axios.get('http://localhost:1337/api/contact-detail')
+            axios.get('http://localhost:1337/api/contact-detail'),
+            axios.get('http://localhost:1337/api/hero?populate=*')
         ])
-            .then(axios.spread((textData, prices, testimonials, serviceSections, contact_details) => {
+            .then(axios.spread((textData, prices, testimonials, serviceSections, contact_details, hero) => {
                 setTextData(textData.data.data.attributes);
                 setPrices(prices.data.data);
                 setTestimonials(testimonials.data.data);
                 setServicesDisplaySectionText(serviceSections.data.data);
                 setContactDetails(contact_details.data.data.attributes);
+                setHeroData(hero.data.data.attributes)
                 setIsLoading(false)
             }))
     }
@@ -87,7 +103,7 @@ export default function Home() {
     return (
         <div className="text-black" >
             <Navbar />
-            <Hero title={textData.hero_title} subtitle={textData.hero_subtitle} image={'./neta-back.jpg'} full={true} />
+            <Hero heroData={heroData} full={true} />
             <About title={textData.about} text={textData.about_desc} />
             <PhotoGallery />
             <Services title={textData.service} text={textData.services_desc} servicesDisplaySectionText={servicesDisplaySectionText} />
