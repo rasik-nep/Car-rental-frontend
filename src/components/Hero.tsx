@@ -25,7 +25,7 @@ const Hero = ({ heroData, full }: HeroProps) => {
     return (
         <section className="hero bg-black text-white">
             <img
-                src={`http://localhost:1337${heroData.image.data.attributes.formats.large.url}`}
+                src={`http://localhost:1337${heroData.image.data.attributes.url}`}
                 alt="Hero image"
                 className={`w-full ${full ? 'h-[100vh]' : 'h-[70vh]'}  object-cover opacity-40`}
             />

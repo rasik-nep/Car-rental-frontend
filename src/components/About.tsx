@@ -1,12 +1,28 @@
-export default function About({ title, text }: { title: string, text?: string }) {
+
+type AboutProps = {
+    aboutData: {
+        image: any;
+        title: string;
+        description: string;
+    };
+}
+
+export default function About({ aboutData }: AboutProps) {
+    console.log(aboutData.image.data.attributes.url)
+
     return (
-        <section className="full-container bg-white text-black p-7" id="about">
-            <div className="">
-                <h1 className="text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-medium font-alfa-slab text-bold text-center border-b-2 border-opacity-100 border-red-400 md:w-[20rem] mx-auto">{title}</h1>
-                <div className="max-w-[40rem] mx-auto text-center p-4">
-                    <p className="text-md">
-                        {text}
-                    </p>
+        <section className="full-container text-black p-7 md:h-[90vh] bg-red-200" id="about">
+            <div className="flex flex-col md:flex-row py-5 md:py-10 lg:py-20 md:px-5 lg:px-10">
+                <div className="md:w-[50%] content-center p-5 md:p-10">
+                    <h2 className="text-3xl md:text-5xl lg:text-7xl">{aboutData.title}</h2>
+                    <p className="w-[70%] mt-10">{aboutData.description}</p>
+                </div>
+                <div className="md:w-[50%]">
+                    <img
+                        src={`http://localhost:1337${aboutData.image.data.attributes.url}`}
+                        alt="About image"
+                        className="h-[60vh] md:mx-auto w-[30rem] object-cover"
+                    /> 
                 </div>
             </div>
 

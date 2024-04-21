@@ -10,7 +10,7 @@ export default function Individual_card({ img, name, job, review_desc, review_st
     return (
         <div className="mb-0">
             <div className="mb-6 flex justify-center">
-                <img src={`http://localhost:1337${img.data.attributes.url}`} alt={name}
+                <img src={img} alt={name}
                     className="w-32 rounded-full shadow-lg dark:shadow-black/20" />
             </div>
             <h5 className="mb-2 text-lg font-bold">{name}</h5>
