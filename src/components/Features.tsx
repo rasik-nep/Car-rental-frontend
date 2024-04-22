@@ -23,7 +23,7 @@ export default function Features({ features }: FeaturesProps) {
                             className="h-[15rem] w-[25rem] object-cover"
                         />
 
-                        <div className="border-2 border-gray-500 p-2 mt-4 w-[25rem] p-2">
+                        <div className="border-2 border-gray-500 p-2 mt-4 md:w-[25rem]">
                             <h2 className="text-2xl">{feature.attributes.title}</h2>
                             <p className="mt-1 md:mt-3">{feature.attributes.description}</p>
                         </div>
