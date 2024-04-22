@@ -69,7 +69,6 @@ interface Services {
     };
 }
 
-// using render-as-you-fetch
 export default function Home() {
     const [contactDetails, setContactDetails] = useState<ContactDetailsType>({
         facebook: "",
