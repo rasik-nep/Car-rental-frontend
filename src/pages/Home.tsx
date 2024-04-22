@@ -11,6 +11,7 @@ import Services from "../components/services";
 // import BookNow from "./components/BookNow";
 import Price from "../components/price";
 import Footer from "../components/layout/Footer";
+import Features from "../components/Features";
 
 type TextDataType = {
     hero_title: string;
@@ -52,6 +53,16 @@ type AvailableCarsState = {
     attributes: AvailableCar;
 }[];
 
+type Features = {
+    title: string;
+    description: string;
+    image: any;
+};
+
+type FeaturesState = {
+    attributes: Features;
+}[];
+
 // using render-as-you-fetch
 export default function Home() {
     const [textData, setTextData] = useState<TextDataType>({
@@ -91,6 +102,13 @@ export default function Home() {
             photo: ""
         }
     }]);
+    const [features, setFeatures] = useState<FeaturesState>([{
+        attributes: {
+            title: "",
+            description: "",
+            image: ""
+        }
+    }]);
 
     const [testimonials, setTestimonials] = useState([]);
     const [servicesDisplaySectionText, setServicesDisplaySectionText] = useState([]);
@@ -112,8 +130,9 @@ export default function Home() {
             axios.get('http://localhost:1337/api/hero?populate=*'),
             axios.get('http://localhost:1337/api/about?populate=*'),
             axios.get('http://localhost:1337/api/available-cars?populate=*'),
+            axios.get('http://localhost:1337/api/features?populate=*'),
         ])
-            .then(axios.spread((textData, prices, testimonials, serviceSections, contact_details, hero, about, avilableCars) => {
+            .then(axios.spread((textData, prices, testimonials, serviceSections, contact_details, hero, about, avilableCars, features) => {
                 setTextData(textData.data.data.attributes);
                 setPrices(prices.data.data);
                 setTestimonials(testimonials.data.data);
@@ -122,6 +141,7 @@ export default function Home() {
                 setHeroData(hero.data.data.attributes)
                 setAboutData(about.data.data.attributes)
                 setAvailableCars(avilableCars.data.data)
+                setFeatures(features.data.data)
                 // console.log(avilableCars)
                 setIsLoading(false)
             }))
@@ -141,6 +161,7 @@ export default function Home() {
             <Services title={textData.service} text={textData.services_desc} servicesDisplaySectionText={servicesDisplaySectionText} />
             {/* <BookNow /> */}
             <Price title={textData.price} text={textData.price_desc} prices={prices} />
+            <Features features={features} />
             <Testimonials title={textData.testimonials} testimonials_arr={testimonials} />
             <Footer contactDetails={contactDetails} />
         </div>
