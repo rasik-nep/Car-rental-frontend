@@ -4,9 +4,10 @@ import axios from "axios";
 import Navbar from "../components/layout/Navbar";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import AvailableCars from "../components/AvailableCars";
 import Testimonials from "../components/testimonials";
 import Services from "../components/services";
-import PhotoGallery from "../components/photo-gallery";
+// import PhotoGallery from "../components/photo-gallery";
 // import BookNow from "./components/BookNow";
 import Price from "../components/price";
 import Footer from "../components/layout/Footer";
@@ -32,16 +33,24 @@ type ContactDetailsType = {
 }
 
 type HeroDataType = {
-    image: string;
+    image: any;
     welcome: string;
     company_name: string;
     company_slogan: string;
 }
 type AboutDataType = {
-    image: string;
+    image: any;
     title: string;
     description: string;
 }
+type AvailableCar = {
+    name: string;
+    photo: any;
+};
+
+type AvailableCarsState = {
+    attributes: AvailableCar;
+}[];
 
 // using render-as-you-fetch
 export default function Home() {
@@ -76,6 +85,12 @@ export default function Home() {
         title: "",
         description: "",
     })
+    const [availableCars, setAvailableCars] = useState<AvailableCarsState>([{
+        attributes: {
+            name: "",
+            photo: ""
+        }
+    }]);
 
     const [testimonials, setTestimonials] = useState([]);
     const [servicesDisplaySectionText, setServicesDisplaySectionText] = useState([]);
@@ -96,8 +111,9 @@ export default function Home() {
             axios.get('http://localhost:1337/api/contact-detail'),
             axios.get('http://localhost:1337/api/hero?populate=*'),
             axios.get('http://localhost:1337/api/about?populate=*'),
+            axios.get('http://localhost:1337/api/available-cars?populate=*'),
         ])
-            .then(axios.spread((textData, prices, testimonials, serviceSections, contact_details, hero, about) => {
+            .then(axios.spread((textData, prices, testimonials, serviceSections, contact_details, hero, about, avilableCars) => {
                 setTextData(textData.data.data.attributes);
                 setPrices(prices.data.data);
                 setTestimonials(testimonials.data.data);
@@ -105,6 +121,8 @@ export default function Home() {
                 setContactDetails(contact_details.data.data.attributes);
                 setHeroData(hero.data.data.attributes)
                 setAboutData(about.data.data.attributes)
+                setAvailableCars(avilableCars.data.data)
+                // console.log(avilableCars)
                 setIsLoading(false)
             }))
     }
@@ -118,6 +136,7 @@ export default function Home() {
             <Navbar />
             <Hero heroData={heroData} full={true} />
             <About aboutData={aboutData} />
+            <AvailableCars availableCars={availableCars} />
             {/* <PhotoGallery /> */}
             <Services title={textData.service} text={textData.services_desc} servicesDisplaySectionText={servicesDisplaySectionText} />
             {/* <BookNow /> */}

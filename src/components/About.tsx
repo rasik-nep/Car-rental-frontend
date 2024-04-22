@@ -8,8 +8,6 @@ type AboutProps = {
 }
 
 export default function About({ aboutData }: AboutProps) {
-    console.log(aboutData.image.data.attributes.url)
-
     return (
         <section className="full-container text-black p-7 md:h-[90vh] bg-red-200" id="about">
             <div className="flex flex-col md:flex-row py-5 md:py-10 lg:py-20 md:px-5 lg:px-10">
