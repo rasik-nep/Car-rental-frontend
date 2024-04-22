@@ -83,7 +83,7 @@ export const AboutApiResponse ={
 		"id": 1,
 		"attributes": {
 			"title": "Get to know more about us!!!",
-			"description": "Write a paragraph that talks about your brand or property here. Convince your prospective clients to choose you and your offerings by highlighting the qualities that set you apart from the competition. Your audience is already on your website, so push a little bit harder to seal the deal!",
+			"description": "At Shan Vehicle Rental, we are passionate about providing our customers with the best rental experience possible. With a commitment to excellence and customer satisfaction, we strive to offer a wide range of well-maintained vehicles to meet every need and budget. Our team of experienced professionals is dedicated to ensuring that your rental experience is seamless and enjoyable. Whether you're traveling for business or pleasure, you can trust Shan Vehicle Rental to provide you with reliable and affordable transportation solutions. Discover the difference with Shan Vehicle Rental today!",
 			"image": {
 				"data": {
 					"id": 5,
@@ -916,9 +916,8 @@ export const ServiceApiResponse ={
 			"id": 1,
 			"attributes": {
 				"title": "Marriage Ceremonies",
-				"description": "Add a detailed explanation on this",
-				
-				"caption": "Caption for the image",
+				"description": "For Marriage Ceremonies, Shan Vehicle Rental offers a special fleet of vehicles to add a touch of elegance to your special day. From luxurious sedans for the bride and groom to spacious vans for guests, we ensure that every moment of your wedding day is memorable and stress-free.",
+				"caption": "Elegant wedding transport for your special day.",
 				"image": {
 					"data": [
 						{
@@ -995,9 +994,8 @@ export const ServiceApiResponse ={
 			"id": 3,
 			"attributes": {
 				"title": "Long Trips",
-				"description": "Add a detailed explanation on this",
-				
-				"caption": "An intriguing caption that describes the room",
+				"description": "For Long Trips, Shan Vehicle Rental offers a comfortable and reliable transportation solution. Our fleet includes spacious and well-equipped vehicles, perfect for exploring new destinations or embarking on a road trip adventure. Sit back, relax, and enjoy the journey with Shan Vehicle Rental.",
+				"caption": "Comfortable rides for unforgettable journeys.",
 				"image": {
 					"data": [
 						{
@@ -1074,9 +1072,8 @@ export const ServiceApiResponse ={
 			"id": 4,
 			"attributes": {
 				"title": "Airport Pickup & Drop",
-				"description": "Airport Pickup & Drop\n\nAdd a detailed explanation on this",
-				
-				"caption": "An intriguing caption that describes the room goes here",
+				"description": "Shan Vehicle Rental provides convenient Airport Pickup & Drop services, ensuring a stress-free start or end to your journey. Our professional drivers will greet you at the airport and ensure a smooth transfer to your destination. Trust Shan Vehicle Rental for reliable and comfortable airport transportation.",
+				"caption": "Seamless airport transfers for hassle-free travel.",
 				"image": {
 					"data": [
 						{

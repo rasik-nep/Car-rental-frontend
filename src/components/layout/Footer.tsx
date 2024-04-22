@@ -46,7 +46,6 @@ export default function Footer({ contactDetails }: any) {
                         <FooterColumn title={OfficeHours.title}>
                             {OfficeHours.content.map((contact) => (
                                 <React.Fragment key={contact.title}>
-                                    {/* <contact.logo className="mr-2"></contact.logo> */}
                                     <span><p>{contact.title}</p>
                                         <p>{contact.label}</p></span>
                                 </React.Fragment>
