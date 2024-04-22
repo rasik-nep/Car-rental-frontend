@@ -30,7 +30,7 @@ export default function Footer({ contactDetails }: any) {
     return (
         <footer className="flexCenter bg-black-90 pt-5 bg-primary-50 text-white">
             <div className="padding-container full-container flex w-full flex-col gap-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-10">
                     <div className='flex flex-wrap gap-10 sm:justify-between'>
                         <FooterColumn title={FooterContacts.title}>
                             {FooterContacts.content.map((contact) => (
