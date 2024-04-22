@@ -28,7 +28,7 @@ export default function Footer({ contactDetails }: any) {
         ],
     }
     return (
-        <footer className="flexCenter bg-black-90 pt-5 bg-gray-900 text-white">
+        <footer className="flexCenter bg-black-90 pt-5 bg-primary-50 text-white">
             <div className="padding-container full-container flex w-full flex-col gap-10">
                 {/* <div className="m-30">
                     <img src="./logo.png" alt="logo" className="h-[9rem] w-[9rem] logoImage" />

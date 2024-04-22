@@ -12,11 +12,11 @@ type Testimonial_props = {
 
 export default function Testimonials({ testimonials_arr }: Testimonial_props) {
     return (
-        <section className="relative text-white">
+        <section className="relative text-white bg-primary-10">
             <div
                 className="absolute inset-0 w-full h-full bg-center bg-cover"
                 // style={{ backgroundImage: `url('./neta-back.jpg')` }}
-                style={{ backgroundColor: '#100500'}}
+                // style={{ backgroundColor: '#100500'}}
             />
             <div className="relative md:h-[100vh]">
                 <h2 className="text-center py-10 md:py-20 text-4xl md:text-7xl font-bold">What our Customers say</h2>

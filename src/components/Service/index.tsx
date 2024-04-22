@@ -15,7 +15,7 @@ type ServiceProps = {
 export default function index({ services }: ServiceProps) {
   console.log(services)
   return (
-    <section className="md:py-10 md:px-20">
+    <section className="md:py-10 md:px-20 bg-primary-10">
       {services.map((service, i) => (
         <IndividualService
           title={service.attributes.title}

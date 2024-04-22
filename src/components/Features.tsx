@@ -12,13 +12,13 @@ interface Features {
 
 export default function Features({ features }: FeaturesProps) {
     return (
-        <section className="full-container">
+        <section className="full-container bg-primary-40">
             <h1 className="text-center text-5xl py-3">Our Features</h1>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:px-[5rem] py-[2rem]">
                 {features.map((feature, index) => (
                     <div key={index} className="flex flex-col items-center m-3">
                         <img
-                            src={`http://localhost:1337${feature.attributes.image.data[0].attributes.url}`}
+                            src={`${feature.attributes.image.data[0].attributes.url}`}
                             alt={feature.attributes.title}
                             className="h-[15rem] w-[25rem] object-cover"
                         />

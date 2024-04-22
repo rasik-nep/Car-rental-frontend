@@ -132,10 +132,6 @@ export default function Home() {
             <About aboutData={aboutData} />
             <AvailableCars availableCars={availableCars} />
             <Service services={serviceDetails} />
-            {/* <PhotoGallery /> */}
-            {/* <Services title={textData.service} text={textData.services_desc} servicesDisplaySectionText={servicesDisplaySectionText} /> */}
-            {/* <BookNow /> */}
-            {/* <Price title={textData.price} text={textData.price_desc} prices={prices} /> */}
             <Features features={features} />
             <Testimonials testimonials_arr={testimonials} />
             <Footer contactDetails={contactDetails} />

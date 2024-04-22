@@ -12,20 +12,10 @@ type HeroProps = {
 }
 
 const Hero = ({ heroData, full }: HeroProps) => {
-    // const scrollToNextSection = () => {
-    //     const nextSection = document.getElementById("about");
-
-    //     if (nextSection) {
-    //         window.scrollTo({
-    //             top: nextSection.offsetTop,
-    //             behavior: 'smooth',
-    //         });
-    //     }
-    // };
     return (
-        <section className="hero bg-black text-white">
+        <section className="hero bg-primary-50 text-white">
             <img
-                src={`http://localhost:1337${heroData.image.data.attributes.url}`}
+                src={`${heroData.image.data.attributes.url}`}
                 alt="Hero image"
                 className={`w-full ${full ? 'h-[100vh]' : 'h-[70vh]'}  object-cover opacity-40`}
             />
@@ -39,13 +29,6 @@ const Hero = ({ heroData, full }: HeroProps) => {
                     <Button type="button" title="Learn More" variant="btn_white_square" />
                 </a>
             </div>
-            {/* Button placed at the bottom */}
-            {/* <div className="absolute bottom-4 right-4 mt-[00px] w-full">
-                {full && <FaAngleDoubleDown
-                    className="text-white cursor-pointer text-2xl mx-auto animate-bounce"
-                    onClick={scrollToNextSection}
-                />}
-            </div> */}
         </section>
     );
 };

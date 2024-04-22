@@ -15,7 +15,7 @@ export default function IndividualService({ title, description, image, caption }
             </div>
             <div className="w-full md:w-1/2 flex flex-col gap-2 items-center">
                 <img src={'neta.png'} alt={title} className="w-[30rem] object-cover" />
-                <div className="border-2 p-5 md:w-[30rem] text-center">
+                <div className="border-2 border-primary-50 p-5 md:w-[30rem] text-center">
                     <p>{caption}</p>
                 </div>
             </div>
