@@ -14,7 +14,7 @@ export default function Features({ features }: FeaturesProps) {
     return (
         <section className="full-container bg-primary-40">
             <h1 className="text-center text-5xl py-3">Our Features</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:px-[5rem] py-[2rem]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:px-[2rem] lg:px-[5rem] py-[2rem]">
                 {features.map((feature, index) => (
                     <div key={index} className="flex flex-col items-center m-3">
                         <img

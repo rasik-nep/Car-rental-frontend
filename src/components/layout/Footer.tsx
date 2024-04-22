@@ -30,10 +30,7 @@ export default function Footer({ contactDetails }: any) {
     return (
         <footer className="flexCenter bg-black-90 pt-5 bg-primary-50 text-white">
             <div className="padding-container full-container flex w-full flex-col gap-10">
-                {/* <div className="m-30">
-                    <img src="./logo.png" alt="logo" className="h-[9rem] w-[9rem] logoImage" />
-                </div> */}
-                <div className="flex flex-col md:flex-row justify-around gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-10">
                     <div className='flex flex-wrap gap-10 sm:justify-between'>
                         <FooterColumn title={FooterContacts.title}>
                             {FooterContacts.content.map((contact) => (
@@ -76,7 +73,6 @@ export default function Footer({ contactDetails }: any) {
                         </FooterColumn>
                     </div>
                 </div>
-
                 <div className="border bg-gray-20" />
                 <p className="regular-14 w-full text-center text-gray-30">2024 Shan Vehicle Rental | All rights reserved</p>
             </div>
