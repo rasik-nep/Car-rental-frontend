@@ -6,16 +6,15 @@ type IndividualServiceProps = {
 }
 
 export default function IndividualService({ title, description, image, caption }: IndividualServiceProps) {
-    console.log(title, description, image)
     return (
-        <section className="md:h-[70vh] p-10 flex flex-col md:flex-row gap-5 justify-center items-center ">
+        <section className="md:h-[70vh] p-5 md:p-10 flex flex-col md:flex-row gap-5 justify-center items-center ">
             <div className="w-full md:w-1/2 text-center h-full md:text-left flex flex-col">
-                <h3 className="text-6xl">{title}</h3>
+                <h3 className="text-3xl md:text-6xl">{title}</h3>
                 <p className="mt-2 md:mt-[17rem]">{description}</p>
             </div>
             <div className="w-full md:w-1/2 flex flex-col gap-2 items-center">
-                <img src={'neta.png'} alt={title} className="w-[30rem] object-cover" />
-                <div className="border-2 border-primary-50 p-5 md:w-[30rem] text-center">
+                <img src={`${image.data[0].attributes.url}`} alt={title} className="w-[30rem] object-cover" />
+                <div className="border-2 border-primary-50 px-5 py-2 md:p-5 md:min-w-[30rem] text-center">
                     <p>{caption}</p>
                 </div>
             </div>
