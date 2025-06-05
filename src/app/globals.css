@@ -16,6 +16,11 @@
   --color-warning: #ffa600;
   --color-info: #00b4d8;
   --color-white: #ffffff;
+
+  --color-grey-100:#C5C5C5;
+  --color-yellow-100:#D1D19F;
+  --color-green-100:#93D592;
+  --color-purple-100:#B2BBEA;
 }
 
 body {

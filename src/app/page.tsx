@@ -1,7 +1,7 @@
 import Features from "@/components/Views/Features";
 import Hero from "@/components/Views/Hero";
-import Services from "@/components/Views/Services";
-import Testimonials from "@/components/Views/Testimonials";
+// import Services from "@/components/Views/Services";
+// import Testimonials from "@/components/Views/Testimonials";
 import VehicleFleet from "@/components/Views/VehicleFleet";
 
 export default function Home() {
@@ -9,9 +9,9 @@ export default function Home() {
     <div>
       <Hero />
       <VehicleFleet />
-      <Services />
+      {/* <Services /> */}
       <Features />
-      <Testimonials/>
+      {/* <Testimonials/> */}
     </div>
   );
 }
