@@ -1,9 +1,52 @@
+"use client";
+
 import { FaRegClock } from "react-icons/fa6";
 import { BiSupport } from "react-icons/bi";
 import { IoCashOutline } from "react-icons/io5";
 import { TbSteeringWheel } from "react-icons/tb";
-
+import { motion } from "framer-motion";
 import { FEATURES_DATA } from "@/constant";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const featureCardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  hover: {
+    y: -10,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 10,
+    },
+  },
+};
 
 export default function Features() {
   const getIcon = (id: number) => {
@@ -37,45 +80,85 @@ export default function Features() {
   };
 
   return (
-    <div className="min-h-screen md:min-h-screen py-5 md:py-0">
-      <div className="flex flex-col py-6 md:py-35 max-w-[90vw] mx-auto px-4 lg:px-8">
-        <h3 className="text-xl md:text-2xl font-light text-text-300 py-2 md:py-3 uppercase">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+      className="min-h-screen md:min-h-screen py-5 md:py-0"
+    >
+      <motion.div
+        variants={itemVariants}
+        className="flex flex-col py-6 md:py-35 max-w-[90vw] mx-auto px-4 lg:px-8"
+      >
+        <motion.h3
+          variants={itemVariants}
+          className="text-xl md:text-2xl font-light text-text-300 py-2 md:py-3 uppercase"
+        >
           Taking care of every client
-        </h3>
-        <h1 className="text-4xl md:text-7xl font-bold text-text-500 py-2 md:py-3">
+        </motion.h3>
+        <motion.h1
+          variants={itemVariants}
+          className="text-4xl md:text-7xl font-bold text-text-500 py-2 md:py-3"
+        >
           Key Features
-        </h1>
-        <p className="text-base md:text-lg text-text-500 py-2 md:py-3">
+        </motion.h1>
+        <motion.p
+          variants={itemVariants}
+          className="text-base md:text-lg text-text-500 py-2 md:py-3"
+        >
           We have the best cars available in Nepal <br />
           and we provide the best cars and
           <br /> services to you.
-        </p>
-      </div>
-      <div className="flex flex-col max-w-[90vw] mx-auto px-4 lg:px-8">
-        <div className="flex flex-col md:flex-row gap-8 w-full justify-between">
-          {FEATURES_DATA.map((feature) => (
-            <div
+        </motion.p>
+      </motion.div>
+
+      <motion.div
+        variants={containerVariants}
+        className="flex flex-col max-w-[90vw] mx-auto px-4 lg:px-8"
+      >
+        <motion.div
+          variants={containerVariants}
+          className="flex flex-col md:flex-row gap-8 w-full justify-between"
+        >
+          {FEATURES_DATA.map((feature, index) => (
+            <motion.div
               key={feature.id}
+              variants={featureCardVariants}
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hover"
+              viewport={{ once: true }}
+              custom={index}
               className="flex flex-col items-start h-[10rem] md:h-[15rem] lg:h-[20rem] p-6 rounded-lg w-full md:w-[17rem] border-1 border-text-300/40"
             >
-              <div
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400 }}
                 className={`w-12 h-12 rounded-full ${getIconBgColor(
                   feature.id
                 )} flex items-center justify-center`}
               >
-                <div className="text-2xl text-text-500">
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-2xl text-text-500"
+                >
                   {getIcon(feature.id)}
-                </div>
-              </div>
-              <div className="mt-auto">
-                <h3 className="text-lg font-medium text-text-500">
+                </motion.div>
+              </motion.div>
+              <motion.div variants={itemVariants} className="mt-auto">
+                <motion.h3
+                  variants={itemVariants}
+                  className="text-lg font-medium text-text-500"
+                >
                   {feature.title}
-                </h3>
-              </div>
-            </div>
+                </motion.h3>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }

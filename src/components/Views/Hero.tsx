@@ -8,11 +8,19 @@ export default function Hero() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, -200]);
 
+  // Duplicate the logos multiple times to ensure smooth infinite scroll
+  const duplicatedLogos = [
+    ...CAR_LOGO_SLIDE_DATA,
+    ...CAR_LOGO_SLIDE_DATA,
+    ...CAR_LOGO_SLIDE_DATA,
+    ...CAR_LOGO_SLIDE_DATA,
+  ];
+
   return (
-    <div className="bg-background relative overflow-hidden h-screen">
+    <div className="bg-background relative overflow-hidden h-screen flex flex-col">
       {/* Absolutely positioned image for large screens */}
       <motion.div
-        className="block absolute top-[330px] md:top-[250px] lg:top-[100px] left-0 md:left-50 lg:left-220 h-[50rem] w-[50rem] lg:h-[95rem] lg:w-[95rem] z-0 py-10"
+        className="block absolute top-[350px] md:top-[250px] lg:top-[100px] left-0 md:left-50 lg:left-220 h-[50rem] w-[50rem] lg:h-[95rem] lg:w-[95rem] z-0 py-10"
         style={{ y }}
       >
         <Image
@@ -27,7 +35,7 @@ export default function Hero() {
         />
       </motion.div>
 
-      <main className="relative z-10 max-w-[90vw] mx-auto px-4 py-5 sm:px-6 lg:px-8 ">
+      <main className="relative z-10 max-w-[90vw] mx-auto px-4 py-5 sm:px-6 lg:px-8 flex-grow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,11 +67,31 @@ export default function Hero() {
         </motion.div>
       </main>
 
-      <div className="block lg:hidden h-[35vh] md:h-[50vh] "></div>
-      <div className="flex flex-row items-center justify-center gap-15 md:gap-18 h-[10vh] lg:h-[20vh] overflow-auto">
-        {CAR_LOGO_SLIDE_DATA.map((item) => (
-          <CarLogoSlide key={item.id} item={item} />
-        ))}
+      <div className="relative overflow-hidden py-10 mt-auto">
+        <motion.div
+          className="flex items-center"
+          animate={{
+            x: ["0%", "-50%"],
+          }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 40,
+              ease: "linear",
+              repeatDelay: 0,
+            },
+          }}
+        >
+          {duplicatedLogos.map((item, index) => (
+            <motion.div
+              key={`${item.id}-${index}`}
+              className="mx-8 md:mx-12 lg:mx-16"
+            >
+              <CarLogoSlide item={item} />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );
