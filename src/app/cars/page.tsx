@@ -30,9 +30,13 @@ const itemVariants = {
 
 export default function Cars() {
   const [activeCategory, setActiveCategory] = useState<string>("Car");
+  const [selectedVehicleId, setSelectedVehicleId] = useState<number | null>(
+    null
+  );
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
+    setSelectedVehicleId(null); // Reset selected vehicle when changing category
   };
 
   return (
@@ -122,7 +126,12 @@ export default function Cars() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="relative overflow-hidden rounded-lg w-full"
+                    className="relative overflow-hidden rounded-lg w-full cursor-pointer group"
+                    onClick={() =>
+                      setSelectedVehicleId(
+                        selectedVehicleId === item.id ? null : item.id
+                      )
+                    }
                   >
                     <motion.div
                       whileHover={{ scale: 1.1 }}
@@ -136,6 +145,17 @@ export default function Cars() {
                         className="w-full h-[250px] object-cover"
                         priority={index < 3}
                       />
+                      <div
+                        className={`absolute inset-0 bg-black/30 bg-opacity-50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${
+                          selectedVehicleId === item.id
+                            ? "opacity-100"
+                            : "opacity-0 md:opacity-0"
+                        }`}
+                      >
+                        <span className="text-white text-xl font-semibold">
+                          {item.price}
+                        </span>
+                      </div>
                     </motion.div>
                   </motion.div>
                   <motion.h3

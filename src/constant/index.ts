@@ -52,41 +52,49 @@ export const VEHICLE_FLEET_DATA = {
       id: 1,
       name: "audi",
       image: "/CarImage.jpg",
+      price: "Rs. 15,000/day",
     },
     {
       id: 2,
       name: "byd",
       image: "/CarImage.jpg",
+      price: "Rs. 12,000/day",
     },
     {
       id: 3,
       name: "byd",
       image: "/CarImage.jpg",
+      price: "Rs. 12,000/day",
     },
     {
       id: 4,
       name: "byd",
       image: "/CarImage.jpg",
+      price: "Rs. 12,000/day",
     },
     {
       id: 5,
       name: "byd",
       image: "/CarImage.jpg",
+      price: "Rs. 12,000/day",
     },
     {
       id: 6,
       name: "byd",
       image: "/CarImage.jpg",
+      price: "Rs. 12,000/day",
     },
     {
       id: 7,
       name: "byd",
       image: "/CarImage.jpg",
+      price: "Rs. 12,000/day",
     },
     {
       id: 8,
       name: "byd",
       image: "/CarImage.jpg",
+      price: "Rs. 12,000/day",
     },
   ],
   Luxury: [
@@ -94,16 +102,19 @@ export const VEHICLE_FLEET_DATA = {
       id: 1,
       name: "audi",
       image: "/CarImage.jpg",
+      price: "Rs. 25,000/day",
     },
     {
       id: 2,
       name: "byd",
       image: "/CarImage.jpg",
+      price: "Rs. 22,000/day",
     },
     {
       id: 3,
       name: "hyundai",
       image: "/CarImage.jpg",
+      price: "Rs. 20,000/day",
     },
   ],
   Vintage: [
@@ -111,6 +122,7 @@ export const VEHICLE_FLEET_DATA = {
       id: 1,
       name: "audi",
       image: "/CarImage.jpg",
+      price: "Rs. 30,000/day",
     },
   ],
   SUV: [
@@ -118,6 +130,7 @@ export const VEHICLE_FLEET_DATA = {
       id: 1,
       name: "audi",
       image: "/CarImage.jpg",
+      price: "Rs. 18,000/day",
     },
   ],
   Bus: [
@@ -125,6 +138,7 @@ export const VEHICLE_FLEET_DATA = {
       id: 1,
       name: "audi",
       image: "/CarImage.jpg",
+      price: "Rs. 35,000/day",
     },
   ],
 };

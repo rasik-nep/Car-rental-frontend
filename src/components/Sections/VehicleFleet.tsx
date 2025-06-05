@@ -74,6 +74,10 @@ export default function VehicleFleet() {
   const [activeCategory, setActiveCategory] = useState<string>(
     Object.keys(VEHICLE_FLEET_DATA)[0]
   );
+  const [selectedVehicleId, setSelectedVehicleId] = useState<number | null>(
+    null
+  );
+
   // Replace the handleCategoryChange function around line 32:
   const handleCategoryChange = useCallback((category: string) => {
     setActiveCategory(category);
@@ -168,7 +172,12 @@ export default function VehicleFleet() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="relative overflow-hidden rounded-lg"
+                    className="relative overflow-hidden rounded-lg cursor-pointer group"
+                    onClick={() =>
+                      setSelectedVehicleId(
+                        selectedVehicleId === item.id ? null : item.id
+                      )
+                    }
                   >
                     <motion.div
                       whileHover={{ scale: 1.1 }}
@@ -181,6 +190,17 @@ export default function VehicleFleet() {
                         height={200}
                         className="w-full h-[180px] md:h-[230px] object-cover"
                       />
+                      <div
+                        className={`absolute inset-0 bg-black/30 bg-opacity-50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${
+                          selectedVehicleId === item.id
+                            ? "opacity-100"
+                            : "opacity-0 md:opacity-0"
+                        }`}
+                      >
+                        <span className="text-white text-xl font-semibold">
+                          {item.price}
+                        </span>
+                      </div>
                     </motion.div>
                   </motion.div>
                   <motion.h3
@@ -216,7 +236,12 @@ export default function VehicleFleet() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="relative overflow-hidden rounded-lg"
+                    className="relative overflow-hidden rounded-lg cursor-pointer group"
+                    onClick={() =>
+                      setSelectedVehicleId(
+                        selectedVehicleId === item.id ? null : item.id
+                      )
+                    }
                   >
                     <motion.div
                       whileHover={{ scale: 1.1 }}
@@ -229,6 +254,17 @@ export default function VehicleFleet() {
                         height={100}
                         className="w-full h-[150px] object-cover"
                       />
+                      <div
+                        className={`absolute inset-0 bg-black/30 bg-opacity-50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${
+                          selectedVehicleId === item.id
+                            ? "opacity-100"
+                            : "opacity-0 md:opacity-0"
+                        }`}
+                      >
+                        <span className="text-white text-lg font-semibold">
+                          {item.price}
+                        </span>
+                      </div>
                     </motion.div>
                   </motion.div>
                   <motion.h3
