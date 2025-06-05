@@ -40,7 +40,7 @@ export default function Cars() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="min-h-screen bg-background py-20"
+      className="min-h-screen bg-background py-10"
     >
       <div className="max-w-[90vw] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

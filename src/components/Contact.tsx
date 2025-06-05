@@ -1,5 +1,6 @@
 "use client";
 
+import { OpenWhatsappProfile } from "@/services/Whatsapp";
 import { motion } from "framer-motion";
 
 const containerVariants = {
@@ -72,6 +73,7 @@ export default function Contact() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="bg-white text-text-500 block px-10 py-2 rounded-4xl text-base font-bold hover:bg-primary/90 transition-colors mt-4 cursor-pointer relative z-10"
+        onClick={() => OpenWhatsappProfile()}
       >
         Contact Us
       </motion.button>
