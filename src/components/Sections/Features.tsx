@@ -30,13 +30,13 @@ const itemVariants = {
 };
 
 const featureCardVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 10 },
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
-      delay: index * 0.5,
+      duration: 0.4,
+      delay: index * 0.4,
     },
   }),
   hover: {

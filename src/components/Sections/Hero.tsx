@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 export default function Hero() {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, -200]);
+  const y = useTransform(scrollY, [0, 400], [0, -200]);
 
   // Duplicate the logos multiple times to ensure smooth infinite scroll
   const duplicatedLogos = [...CAR_LOGO_SLIDE_DATA, ...CAR_LOGO_SLIDE_DATA];

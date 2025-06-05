@@ -17,7 +17,7 @@ export const CAR_LOGO_SLIDE_DATA = [
   {
     id: 4,
     name: "mahindra",
-    image: "/mahindra.jpg",
+    image: "/mahindra.png",
   },
   {
     id: 5,
@@ -27,12 +27,12 @@ export const CAR_LOGO_SLIDE_DATA = [
   {
     id: 6,
     name: "neta",
-    image: "/neta.jpg",
+    image: "/neta.png",
   },
   {
     id: 7,
     name: "skoda",
-    image: "/skoda.jpg",
+    image: "/skoda.png",
   },
   {
     id: 8,
@@ -42,7 +42,7 @@ export const CAR_LOGO_SLIDE_DATA = [
   {
     id: 9,
     name: "toyota",
-    image: "/toyota.jpg",
+    image: "/toyota.png",
   },
 ];
 
