@@ -9,12 +9,7 @@ export default function Hero() {
   const y = useTransform(scrollY, [0, 500], [0, -200]);
 
   // Duplicate the logos multiple times to ensure smooth infinite scroll
-  const duplicatedLogos = [
-    ...CAR_LOGO_SLIDE_DATA,
-    ...CAR_LOGO_SLIDE_DATA,
-    ...CAR_LOGO_SLIDE_DATA,
-    ...CAR_LOGO_SLIDE_DATA,
-  ];
+  const duplicatedLogos = [...CAR_LOGO_SLIDE_DATA, ...CAR_LOGO_SLIDE_DATA];
 
   return (
     <div className="bg-background relative overflow-hidden h-screen flex flex-col">
@@ -39,12 +34,18 @@ export default function Hero() {
       >
         <Image
           src="/neta-car.png"
-          alt="neta-car"
+          alt="Premium car for rental"
           width={1700}
           height={1000}
           priority
+          quality={85}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 95vw"
           style={{
             objectFit: "cover",
+            width: "100%",
+            height: "auto",
           }}
         />
       </motion.div>
@@ -82,30 +83,16 @@ export default function Hero() {
       </main>
 
       <div className="relative overflow-hidden py-10 mt-auto">
-        <motion.div
-          className="flex items-center"
-          animate={{
-            x: ["0%", "-50%"],
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 10,
-              ease: "linear",
-              repeatDelay: 0,
-            },
-          }}
-        >
+        <div className="flex items-center infinite-scroll">
           {duplicatedLogos.map((item, index) => (
-            <motion.div
+            <div
               key={`${item.id}-${index}`}
-              className="mx-8 md:mx-12 lg:mx-16"
+              className="mx-8 md:mx-12 lg:mx-16 flex-shrink-0"
             >
               <CarLogoSlide item={item} />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );

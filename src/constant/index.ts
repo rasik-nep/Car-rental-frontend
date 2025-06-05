@@ -179,3 +179,9 @@ export const TESTIMONIALS_DATA = [
     text: "Great family-friendly service. They provided a spacious car perfect for our family trip. The staff was very accommodating.",
   },
 ];
+
+export const CONTACT_DATA = {
+  Phone: "+9779869292648",
+  Email: "shanvehiclerental@gmail.com",
+  Address: "Kathmandu, Nepal",
+};

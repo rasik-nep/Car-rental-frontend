@@ -1,5 +1,7 @@
+import { CONTACT_DATA } from "@/constant";
+
 export const OpenWhatsappProfile = () => {
-  const whatsappNumber = "+9779869292648";
+  const whatsappNumber = CONTACT_DATA.Phone;
   const message = "Hello, I would like to reserve a car!";
   const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     message

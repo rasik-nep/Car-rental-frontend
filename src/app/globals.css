@@ -27,3 +27,18 @@ body {
   font-family: var(--font-dm-sans), sans-serif;
   background-color: var(--color-background);
 }
+
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.infinite-scroll {
+  animation: infiniteScroll 15s linear infinite;
+  will-change: transform;
+}
