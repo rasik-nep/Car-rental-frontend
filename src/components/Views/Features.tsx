@@ -12,7 +12,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.5,
       delayChildren: 0.3,
     },
   },
@@ -31,13 +31,14 @@ const itemVariants = {
 
 const featureCardVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
+  visible: (index: number) => ({
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.5,
+      delay: index * 0.5,
     },
-  },
+  }),
   hover: {
     y: -10,
     transition: {
@@ -46,6 +47,26 @@ const featureCardVariants = {
       damping: 10,
     },
   },
+};
+
+const iconVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0,
+    rotate: -180,
+  },
+  visible: (index: number) => ({
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      duration: 0.8,
+      delay: index * 0.5 + 0.3, // Slightly delayed after the card appears
+      type: "spring",
+      stiffness: 200,
+      damping: 10,
+    },
+  }),
 };
 
 export default function Features() {
@@ -133,8 +154,11 @@ export default function Features() {
               className="flex flex-col items-start h-[10rem] md:h-[15rem] lg:h-[20rem] p-6 rounded-lg w-full md:w-[17rem] border-1 border-text-300/40"
             >
               <motion.div
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400 }}
+                variants={iconVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={index}
                 className={`w-12 h-12 rounded-full ${getIconBgColor(
                   feature.id
                 )} flex items-center justify-center`}

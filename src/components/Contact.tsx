@@ -1,15 +1,80 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 export default function Contact() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 bg-text-700 py-10 h-[50vh] w-[85vw] mx-auto rounded-4xl mt-10">
-      <h1 className="text-3xl md:text-5xl lg:text-7xl text-white text-center">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+      className="relative flex flex-col items-center justify-center gap-4 bg-text-700 py-10 h-[50vh] w-[85vw] mx-auto rounded-4xl mt-10 overflow-hidden"
+    >
+      {/* Wavy Lines Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <svg
+          className="absolute inset-0 w-full h-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 100 200"
+        >
+          {[...Array(20)].map((_, index) => (
+            <path
+              key={index}
+              d={`M0,${index * 10} Q25,${index * 10 - 5} 50,${
+                index * 10
+              } T100,${index * 10}`}
+              stroke="grey"
+              strokeWidth="0.5"
+              fill="none"
+            />
+          ))}
+        </svg>
+      </div>
+
+      <motion.h1
+        variants={itemVariants}
+        className="text-3xl md:text-5xl lg:text-7xl text-white text-center relative z-10"
+      >
         Drive with Shan Today
-      </h1>
-      <h4 className="text-base lg:text-2xl text-white text-center py-5">
+      </motion.h1>
+      <motion.h4
+        variants={itemVariants}
+        className="text-base lg:text-2xl text-white text-center py-5 relative z-10"
+      >
         Connect with us and enjoy <br /> the best car service in the country
-      </h4>
-      <button className="bg-white text-text-500 block px-10 py-2 rounded-4xl text-base font-bold hover:bg-primary/90 transition-colors mt-4 cursor-pointer">
+      </motion.h4>
+      <motion.button
+        variants={itemVariants}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="bg-white text-text-500 block px-10 py-2 rounded-4xl text-base font-bold hover:bg-primary/90 transition-colors mt-4 cursor-pointer relative z-10"
+      >
         Contact Us
-      </button>
-    </div>
+      </motion.button>
+    </motion.div>
   );
 }
