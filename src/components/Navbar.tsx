@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -8,10 +8,52 @@ import { OpenWhatsappProfile } from "@/services/Whatsapp";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
+  // Handle scroll visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  // Handle click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="max-w-[90vw] mx-auto px-4 py-5 sm:px-6 lg:px-8">
         <div className="flex justify-between">
           {/* Logo */}
@@ -23,6 +65,7 @@ const Navbar = () => {
                 width={90}
                 height={90}
                 className="w-[60px] h-[60px] sm:w-[100px] sm:h-[100px]"
+                priority
               />
             </Link>
           </div>
@@ -96,10 +139,14 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className={`${isMenuOpen ? "block" : "hidden"} sm:hidden`}>
+      <div
+        ref={mobileMenuRef}
+        className={`${isMenuOpen ? "block" : "hidden"} sm:hidden`}
+      >
         <div className="px-2 pt-2 pb-3 space-y-1 bg-white/80 backdrop-blur-sm">
           <Link
             href="/about"
+            onClick={() => setIsMenuOpen(false)}
             className={`text-gray-700 hover:text-primary block px-3 py-2 rounded-md text-base ${
               pathname === "/about" ? "underline" : ""
             }`}
@@ -108,13 +155,20 @@ const Navbar = () => {
           </Link>
           <Link
             href="/cars"
+            onClick={() => setIsMenuOpen(false)}
             className={`text-gray-700 hover:text-primary block px-3 py-2 rounded-md text-base ${
               pathname === "/cars" ? "underline" : ""
             }`}
           >
             Cars
           </Link>
-          <button className="bg-gray-700 text-white block px-3 py-2 rounded-md text-base hover:bg-primary/90 transition-colors">
+          <button
+            onClick={() => {
+              setIsMenuOpen(false);
+              OpenWhatsappProfile();
+            }}
+            className="bg-gray-700 text-white block px-3 py-2 rounded-md text-base hover:bg-primary/90 transition-colors"
+          >
             Contact Us
           </button>
         </div>

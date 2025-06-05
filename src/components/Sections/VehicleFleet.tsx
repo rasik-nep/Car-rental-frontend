@@ -189,6 +189,7 @@ export default function VehicleFleet() {
                         width={700}
                         height={200}
                         className="w-full h-[180px] md:h-[230px] object-cover"
+                        placeholder="blur"
                       />
                       <div
                         className={`absolute inset-0 bg-black/30 bg-opacity-50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${
