@@ -147,3 +147,35 @@ export const FEATURES_DATA = [
     title: "Self drive",
   },
 ];
+
+export const TESTIMONIALS_DATA = [
+  {
+    id: 1,
+    name: "John Doe",
+    role: "Business Traveler",
+
+    rating: 5,
+    text: "The service was exceptional! The car was clean, well-maintained, and the staff was incredibly helpful. Will definitely use their services again.",
+  },
+  {
+    id: 2,
+    name: "Sarah Smith",
+    role: "Tourist",
+    rating: 5,
+    text: "Perfect experience from start to finish. The booking process was smooth, and the car was exactly as described. Highly recommended!",
+  },
+  {
+    id: 3,
+    name: "Michael Johnson",
+    role: "Local Customer",
+    rating: 5,
+    text: "I&apos;ve been using their service for years, and they never disappoint. The cars are always in top condition, and the prices are reasonable.",
+  },
+  {
+    id: 4,
+    name: "Emily Brown",
+    role: "Family Traveler",
+    rating: 5,
+    text: "Great family-friendly service. They provided a spacious car perfect for our family trip. The staff was very accommodating.",
+  },
+];
