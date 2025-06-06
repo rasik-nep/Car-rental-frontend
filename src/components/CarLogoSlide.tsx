@@ -19,7 +19,6 @@ const CarLogoSlide = ({ item }: CarLogoSlideProps) => {
         height={120}
         priority
         className="object-contain w-full h-full"
-        placeholder="blur"
       />
     </div>
   );

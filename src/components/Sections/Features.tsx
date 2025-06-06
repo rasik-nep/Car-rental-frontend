@@ -1,7 +1,7 @@
 "use client";
 
 import { FaRegClock } from "react-icons/fa6";
-import { BiSupport } from "react-icons/bi";
+import { TbChristmasBall } from "react-icons/tb";
 import { IoCashOutline } from "react-icons/io5";
 import { TbSteeringWheel } from "react-icons/tb";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function Features() {
       case 1:
         return <FaRegClock />;
       case 2:
-        return <BiSupport />;
+        return <TbChristmasBall />;
       case 3:
         return <IoCashOutline />;
       case 4:

@@ -30,7 +30,6 @@ export default function AboutUs() {
           fill
           className="object-cover"
           priority
-          placeholder="blur"
         />
         <div className="absolute inset-0 bg-white/30" />
       </motion.div>

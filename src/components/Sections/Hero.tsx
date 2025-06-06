@@ -45,7 +45,6 @@ export default function Hero() {
             width: "100%",
             height: "auto",
           }}
-          placeholder="blur"
         />
       </motion.div>
 

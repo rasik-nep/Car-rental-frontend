@@ -150,7 +150,7 @@ export const FEATURES_DATA = [
   },
   {
     id: 2,
-    title: "24/7 customer support",
+    title: "Marriage Car",
   },
   {
     id: 3,

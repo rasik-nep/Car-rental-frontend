@@ -144,7 +144,6 @@ export default function Cars() {
                         height={400}
                         className="w-full h-[250px] object-cover"
                         priority={index < 3}
-                        placeholder="blur"
                       />
                       <div
                         className={`absolute inset-0 bg-black/30 bg-opacity-50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${
