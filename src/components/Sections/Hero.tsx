@@ -3,13 +3,27 @@ import { CAR_LOGO_SLIDE_DATA } from "@/constant";
 import Image from "next/image";
 import CarLogoSlide from "../CarLogoSlide";
 import { motion, useScroll, useTransform } from "motion/react";
+import { useImageLoad } from "@/hooks/useImageLoad";
+import Loading from "../Loading";
 
 export default function Hero() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 400], [0, -200]);
 
+  // Track image loading state
+  const { isLoaded: isCarImageLoaded } = useImageLoad("/neta-car.png");
+
   // Duplicate the logos multiple times to ensure smooth infinite scroll
   const duplicatedLogos = [...CAR_LOGO_SLIDE_DATA, ...CAR_LOGO_SLIDE_DATA];
+
+  // Show loading while image is loading
+  if (!isCarImageLoaded) {
+    return (
+      <div className="bg-background relative overflow-hidden h-[90vh] flex flex-col">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-background relative overflow-hidden h-[90vh] flex flex-col">

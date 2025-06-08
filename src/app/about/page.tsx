@@ -3,6 +3,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import { useImageLoad } from "@/hooks/useImageLoad";
+import Loading from "@/components/Loading";
 
 export default function AboutUs() {
   const containerRef = useRef(null);
@@ -11,11 +13,25 @@ export default function AboutUs() {
     offset: ["start start", "end start"],
   });
 
+  // Track image loading state
+  const { isLoaded: isBackgroundImageLoaded } = useImageLoad(
+    "/electric-car-img.jpg"
+  );
+
   const yTitle = useTransform(scrollYProgress, [0, 0.2], ["50%", "0%"]);
   const scaleTitle = useTransform(scrollYProgress, [0, 0.2], [1.2, 1]);
   const contentY = useTransform(scrollYProgress, [0.15, 0.4], ["100%", "0%"]);
   const bgOpacity = useTransform(scrollYProgress, [0.2, 0.4], [1, 0.2]);
   const titleOpacity = useTransform(scrollYProgress, [0.3, 0.4], [1, 0]);
+
+  // Show loading while image is loading
+  if (!isBackgroundImageLoaded) {
+    return (
+      <div className="relative h-[100vh] bg-white">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div ref={containerRef} className="relative h-[100vh]">
