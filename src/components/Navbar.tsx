@@ -14,6 +14,10 @@ const Navbar = () => {
   // Handle click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      // Check if the click is on the menu button
+      const menuButton = (event.target as HTMLElement).closest("button");
+      if (menuButton) return; // Don't close if clicking the menu button
+
       if (
         mobileMenuRef.current &&
         !mobileMenuRef.current.contains(event.target as Node)
@@ -117,9 +121,9 @@ const Navbar = () => {
         ref={mobileMenuRef}
         className={`${
           isMenuOpen ? "block" : "hidden"
-        } sm:hidden absolute w-full`}
+        } sm:hidden absolute w-full z-50 top-[10vh] left-0`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-white/80 backdrop-blur-sm">
+        <div className="px-2 pt-2 pb-3 space-y-1 bg-white/80 backdrop-blur-sm shadow-lg">
           <Link
             href="/about"
             onClick={() => setIsMenuOpen(false)}
