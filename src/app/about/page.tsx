@@ -1,12 +1,13 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { useImageLoad } from "@/hooks/useImageLoad";
 import Loading from "@/components/Loading";
 
 export default function AboutUs() {
+  const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -24,8 +25,12 @@ export default function AboutUs() {
   const bgOpacity = useTransform(scrollYProgress, [0.2, 0.4], [1, 0.2]);
   const titleOpacity = useTransform(scrollYProgress, [0.3, 0.4], [1, 0]);
 
-  // Show loading while image is loading
-  if (!isBackgroundImageLoaded) {
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Show loading while image is loading or component is not mounted
+  if (!isMounted || !isBackgroundImageLoaded) {
     return (
       <div className="relative h-[100vh] bg-white">
         <Loading />
@@ -38,7 +43,7 @@ export default function AboutUs() {
       {/* Background Image */}
       <motion.div
         style={{ opacity: bgOpacity }}
-        className="fixed top-0 left-0 w-full h-screen z-0"
+        className="fixed top-0 left-0 w-full h-screen z-[-1]"
       >
         <Image
           src="/electric-car-img.jpg"
@@ -53,7 +58,7 @@ export default function AboutUs() {
       {/* Hero Section Title */}
       <motion.h1
         style={{ y: yTitle, scale: scaleTitle, opacity: titleOpacity }}
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 text-text-700 text-7xl font-extrabold z-10 text-center"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 text-text-700 text-7xl font-extrabold z-[1] text-center"
       >
         About Us
       </motion.h1>
@@ -61,7 +66,7 @@ export default function AboutUs() {
       {/* Sliding Content Panel */}
       <motion.div
         style={{ y: contentY }}
-        className="absolute top-0 left-0 w-full bg-white z-20 rounded-t-3xl pt-24 pb-32 px-6 md:px-12"
+        className="absolute top-0 left-0 w-full bg-white z-[2] rounded-t-3xl pt-24 pb-32 px-6 md:px-12"
       >
         <div className="space-y-6 text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
           <p>
