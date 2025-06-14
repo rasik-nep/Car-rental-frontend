@@ -49,7 +49,7 @@ export default function Cars() {
       <div className="max-w-[90vw] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={itemVariants}
-          className="max-w-4xl mx-auto mt-[5rem]"
+          className="max-w-4xl mx-auto mt-[2rem]"
         >
           <motion.h1
             variants={itemVariants}
@@ -60,13 +60,18 @@ export default function Cars() {
 
           <motion.p
             variants={itemVariants}
-            className="text-lg text-text-500 text-center mb-12"
+            className="text-lg text-text-500 text-center mb-2"
           >
             Explore our extensive collection of vehicles, from luxury cars to
             practical SUVs. Each vehicle is maintained to the highest standards
             for your comfort and safety.
           </motion.p>
-
+          <motion.p
+            variants={itemVariants}
+            className="text-lg text-text-300 text-center mb-12"
+          >
+            Prices may vary. Please contact us for more details.
+          </motion.p>
           {/* Category Selection */}
           <motion.div
             variants={itemVariants}

@@ -129,7 +129,7 @@ export default function VehicleFleet() {
           We have the best cars available <br className="hidden md:block" /> in
           Nepal and we provide the best cars and{" "}
           <br className="hidden md:block" />
-          services to you.
+          services to you. Prices may vary.
         </motion.p>
       </motion.div>
 
