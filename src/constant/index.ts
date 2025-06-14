@@ -165,32 +165,31 @@ export const FEATURES_DATA = [
 export const TESTIMONIALS_DATA = [
   {
     id: 1,
-    name: "John Doe",
+    name: "Sujan Rana",
     role: "Business Traveler",
-
     rating: 5,
-    text: "The service was exceptional! The car was clean, well-maintained, and the staff was incredibly helpful. Will definitely use their services again.",
+    text: "We rented a self-driving SUV for our Pokhara trip, and it was one of the best decisions we made. The car was clean, well-maintained, and perfect for the winding highways. No hassle, just freedom on the road!",
   },
   {
     id: 2,
-    name: "Sarah Smith",
+    name: "Apsara & Binod",
     role: "Tourist",
     rating: 5,
-    text: "Perfect experience from start to finish. The booking process was smooth, and the car was exactly as described. Highly recommended!",
+    text: "We hired their luxury car for our wedding, and it added a special touch to the big day. The car was beautifully decorated, arrived on time, and the chauffeur was extremely professional. Highly recommended for any special event!",
   },
   {
     id: 3,
-    name: "Michael Johnson",
+    name: "Ramesh Khatri",
     role: "Local Customer",
     rating: 5,
-    text: "I&apos;ve been using their service for years, and they never disappoint. The cars are always in top condition, and the prices are reasonable.",
+    text: "I frequently travel for work, and their self-drive cars have been a game-changer. Booking is quick, pricing is fair, and the support team is always responsive. It's like having your own car without the ownership headache.",
   },
   {
     id: 4,
-    name: "Emily Brown",
+    name: "Meena Dangol",
     role: "Family Traveler",
     rating: 5,
-    text: "Great family-friendly service. They provided a spacious car perfect for our family trip. The staff was very accommodating.",
+    text: "Our family of six rented a van for a week-long tour around eastern Nepal. The rental process was smooth, and the vehicle was perfect for a long trip—comfortable, spacious, and reliable. We’ll definitely book again..",
   },
 ];
 
