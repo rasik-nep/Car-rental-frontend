@@ -1,9 +1,8 @@
+import { TEXT } from "@/constant/text";
+
 export default function Loading() {
   return (
-    <div
-      role="status"
-      className="flex justify-center items-center h-[80vh]"
-    >
+    <div role="status" className="flex justify-center items-center h-[80vh]">
       <svg
         aria-hidden="true"
         className="w-20 h-20 text-text-500 animate-spin fill-primary"
@@ -20,7 +19,7 @@ export default function Loading() {
           fill="currentFill"
         />
       </svg>
-      <span className="sr-only">Loading...</span>
+      <span className="sr-only">{TEXT.common.loading}</span>
     </div>
   );
 }

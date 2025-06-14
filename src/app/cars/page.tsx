@@ -4,6 +4,7 @@ import { VEHICLE_FLEET_DATA } from "@/constant";
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { TEXT } from "@/constant/text";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -55,16 +56,14 @@ export default function Cars() {
             variants={itemVariants}
             className="text-4xl md:text-6xl font-bold text-text-700 mb-8 text-center"
           >
-            Our Vehicle Fleet
+            {TEXT.vehicleFleet.title}
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="text-lg text-text-500 text-center mb-2"
           >
-            Explore our extensive collection of vehicles, from luxury cars to
-            practical SUVs. Each vehicle is maintained to the highest standards
-            for your comfort and safety.
+            {TEXT.vehicleFleet.description}
           </motion.p>
           <motion.p
             variants={itemVariants}

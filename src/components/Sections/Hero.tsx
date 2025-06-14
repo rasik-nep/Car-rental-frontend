@@ -5,6 +5,7 @@ import CarLogoSlide from "../CarLogoSlide";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useImageLoad } from "@/hooks/useImageLoad";
 import Loading from "../Loading";
+import { TEXT } from "@/constant/text";
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -77,7 +78,7 @@ export default function Hero() {
                   transition={{ duration: 0.3, delay: 0.01 }}
                   className="text-[3.125rem] sm:text-[3.75rem] lg:text-[12vh] font-extrabold text-text-500 leading-none"
                 >
-                  Premium Car Rental in Nepal
+                  {TEXT.hero.title}
                 </motion.h1>
                 <motion.h4
                   initial={{ opacity: 0, y: 5 }}
@@ -85,8 +86,7 @@ export default function Hero() {
                   transition={{ duration: 0.2, delay: 0.1 }}
                   className="text-[1.25rem] sm:text-[1.875rem] lg:text-[5vh] text-text-500 py-5 leading-tight"
                 >
-                  With a commitment to excellence and customer satisfaction, we
-                  strive to.
+                  {TEXT.hero.subtitle}
                 </motion.h4>
               </div>
             </div>

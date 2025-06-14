@@ -5,6 +5,7 @@ import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { useImageLoad } from "@/hooks/useImageLoad";
 import Loading from "@/components/Loading";
+import { TEXT } from "@/constant/text";
 
 export default function AboutUs() {
   const [isMounted, setIsMounted] = useState(false);
@@ -60,7 +61,7 @@ export default function AboutUs() {
         style={{ y: yTitle, scale: scaleTitle, opacity: titleOpacity }}
         className="fixed top-1/2 left-1/2 -translate-x-1/2 text-text-700 text-7xl font-extrabold z-[1] text-center"
       >
-        About Us
+        {TEXT.about.title}
       </motion.h1>
 
       {/* Sliding Content Panel */}
@@ -69,28 +70,22 @@ export default function AboutUs() {
         className="absolute top-0 left-0 w-full bg-white z-[2] rounded-t-3xl pt-24 pb-32 px-6 md:px-12"
       >
         <div className="space-y-6 text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
-          <p>
-            Welcome to Shan Car Rental, your premier destination for luxury and
-            reliable car rental services in Nepal...
-          </p>
-          <p>Our extensive fleet features a carefully curated selection...</p>
+          <p>{TEXT.about.welcome}</p>
+          <p>{TEXT.about.fleet}</p>
 
-          <h2 className="text-2xl font-semibold mt-10 mb-2">Our Commitment</h2>
-          <p>
-            At Shan Car Rental, we understand that every journey is unique...
-          </p>
+          <h2 className="text-2xl font-semibold mt-10 mb-2">
+            {TEXT.about.commitment.title}
+          </h2>
+          <p>{TEXT.about.commitment.text}</p>
 
-          <h2 className="text-2xl font-semibold mt-10 mb-2">Why Choose Us</h2>
+          <h2 className="text-2xl font-semibold mt-10 mb-2">
+            {TEXT.about.whyChooseUs.title}
+          </h2>
           <ul className="list-disc pl-6 space-y-2">
-            <li>Extensive fleet of well-maintained vehicles</li>
-            <li>Competitive and transparent pricing</li>
-            <li>24/7 customer support and roadside assistance</li>
-            <li>Flexible rental terms and conditions</li>
+            {TEXT.about.whyChooseUs.items.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
-
-          <p className="mt-8">
-            Whether youre a business traveler or planning a vacation...
-          </p>
         </div>
       </motion.div>
     </div>

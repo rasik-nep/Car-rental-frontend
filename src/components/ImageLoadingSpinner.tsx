@@ -1,3 +1,5 @@
+import { TEXT } from "@/constant/text";
+
 interface ImageLoadingSpinnerProps {
   progress?: number;
   loadedCount?: number;
@@ -9,7 +11,7 @@ export default function ImageLoadingSpinner({
   progress,
   loadedCount,
   totalCount,
-  message = "Loading images...",
+  message = TEXT.common.loadingImages,
 }: ImageLoadingSpinnerProps) {
   return (
     <div
@@ -53,7 +55,7 @@ export default function ImageLoadingSpinner({
         </p>
       )}
 
-      <span className="sr-only">Loading images...</span>
+      <span className="sr-only">{TEXT.common.loadingImages}</span>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { TEXT } from "@/constant/text";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -114,22 +115,19 @@ export default function VehicleFleet() {
           variants={itemVariants}
           className="text-xl md:text-2xl font-light text-text-300 py-2 md:py-3"
         >
-          ONLY THE BEST CARS
+          {TEXT.vehicleFleet.subtitle}
         </motion.h3>
         <motion.h1
           variants={itemVariants}
           className="text-4xl md:text-7xl font-bold text-text-500 py-2 md:py-3"
         >
-          Our Vehicle Fleet
+          {TEXT.vehicleFleet.title}
         </motion.h1>
         <motion.p
           variants={itemVariants}
           className="text-base md:text-lg text-text-500 py-2 md:py-3 text-center"
         >
-          We have the best cars available <br className="hidden md:block" /> in
-          Nepal and we provide the best cars and{" "}
-          <br className="hidden md:block" />
-          services to you. Prices may vary.
+          {TEXT.vehicleFleet.description}
         </motion.p>
       </motion.div>
 

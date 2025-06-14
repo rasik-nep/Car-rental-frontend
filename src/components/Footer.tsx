@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Contact from "./Contact";
+import { TEXT } from "@/constant/text";
 
 const Footer = () => {
   return (
@@ -23,15 +24,14 @@ const Footer = () => {
               />
             </Link>
             <p className="text-text-500 text-sm">
-              Your trusted partner for premium car rental services in Nepal. We
-              provide quality vehicles and exceptional service.
+              {TEXT.footer.company.description}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold text-text-500 mb-4">
-              Quick Links
+              {TEXT.footer.quickLinks.title}
             </h3>
             <ul className="space-y-2">
               <li>
@@ -39,7 +39,7 @@ const Footer = () => {
                   href="/about"
                   className="text-text-500 hover:text-primary transition-colors"
                 >
-                  About Us
+                  {TEXT.footer.quickLinks.about}
                 </Link>
               </li>
               <li>
@@ -47,7 +47,7 @@ const Footer = () => {
                   href="/cars"
                   className="text-text-500 hover:text-primary transition-colors"
                 >
-                  Our Cars
+                  {TEXT.footer.quickLinks.cars}
                 </Link>
               </li>
             </ul>
@@ -56,7 +56,7 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold text-text-500 mb-4">
-              Contact Us
+              {TEXT.footer.contact.title}
             </h3>
             <ul className="space-y-2">
               <li className="flex items-center space-x-2 text-text-500">
@@ -79,7 +79,7 @@ const Footer = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span>Kathmandu, Nepal</span>
+                <span>{TEXT.footer.contact.location}</span>
               </li>
               <li className="flex items-center space-x-2 text-text-500">
                 <svg
@@ -95,7 +95,7 @@ const Footer = () => {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span>+977 1234567890</span>
+                <span>{TEXT.footer.contact.phone}</span>
               </li>
               <li className="flex items-center space-x-2 text-text-500">
                 <svg
@@ -111,7 +111,7 @@ const Footer = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span>info@carrental.com</span>
+                <span>{TEXT.footer.contact.email}</span>
               </li>
             </ul>
           </div>
@@ -119,7 +119,7 @@ const Footer = () => {
           {/* Social Links */}
           <div>
             <h3 className="text-lg font-semibold text-text-500 mb-4">
-              Follow Us
+              {TEXT.footer.social.title}
             </h3>
             <div className="flex space-x-4">
               <a

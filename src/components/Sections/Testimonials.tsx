@@ -4,6 +4,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 import { TESTIMONIALS_DATA } from "@/constant";
 import { useEffect, useState } from "react";
+import { TEXT } from "@/constant/text";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -84,20 +85,19 @@ export default function Testimonials() {
             variants={itemVariants}
             className="text-xl md:text-2xl font-light text-text-300 py-2 md:py-3 uppercase"
           >
-            What Our Clients Say
+            {TEXT.testimonials.subtitle}
           </motion.h3>
           <motion.h1
             variants={itemVariants}
             className="text-4xl md:text-7xl font-bold text-text-500 py-2 md:py-3"
           >
-            Testimonials
+            {TEXT.testimonials.title}
           </motion.h1>
           <motion.p
             variants={itemVariants}
             className="text-base md:text-lg text-text-500 py-2 md:py-3 max-w-2xl mx-auto"
           >
-            Don&apos;t just take our word for it - hear what our satisfied
-            customers have to say about their experience with us.
+            {TEXT.testimonials.description}
           </motion.p>
         </motion.div>
 
@@ -152,10 +152,10 @@ export default function Testimonials() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12"
         >
           {[
-            { number: 500, label: "Happy Customers" },
-            { number: 1000, label: "Cars Rented" },
-            { number: 50, label: "Car Models" },
-            { number: 24, label: "Support" },
+            { number: 500, label: TEXT.testimonials.stats.happyCustomers },
+            { number: 1000, label: TEXT.testimonials.stats.carsRented },
+            { number: 50, label: TEXT.testimonials.stats.carModels },
+            { number: 24, label: TEXT.testimonials.stats.support },
           ].map((stat, index) => (
             <motion.div
               key={index}

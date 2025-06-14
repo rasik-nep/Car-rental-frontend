@@ -6,6 +6,7 @@ import { IoCashOutline } from "react-icons/io5";
 import { TbSteeringWheel } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { FEATURES_DATA } from "@/constant";
+import { TEXT } from "@/constant/text";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -116,21 +117,19 @@ export default function Features() {
           variants={itemVariants}
           className="text-xl md:text-2xl font-light text-text-300 py-2 md:py-3 uppercase"
         >
-          Taking care of every client
+          {TEXT.features.subtitle}
         </motion.h3>
         <motion.h1
           variants={itemVariants}
           className="text-4xl md:text-7xl font-bold text-text-500 py-2 md:py-3"
         >
-          Key Features
+          {TEXT.features.title}
         </motion.h1>
         <motion.p
           variants={itemVariants}
           className="text-base md:text-lg text-text-500 py-2 md:py-3"
         >
-          We have the best cars available in Nepal <br />
-          and we provide the best cars and
-          <br /> services to you.
+          {TEXT.features.description}
         </motion.p>
       </motion.div>
 

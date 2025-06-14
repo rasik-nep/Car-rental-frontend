@@ -2,6 +2,7 @@
 
 import { OpenWhatsappProfile } from "@/services/Whatsapp";
 import { motion } from "framer-motion";
+import { TEXT } from "@/constant/text";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -60,13 +61,13 @@ export default function Contact() {
         variants={itemVariants}
         className="text-3xl md:text-5xl lg:text-7xl text-white text-center relative z-10"
       >
-        Drive with Shan Today
+        {TEXT.contact.title}
       </motion.h1>
       <motion.h4
         variants={itemVariants}
         className="text-base lg:text-2xl text-white text-center py-5 relative z-10"
       >
-        Connect with us and enjoy <br /> the best car service in the country
+        {TEXT.contact.subtitle}
       </motion.h4>
       <motion.button
         variants={itemVariants}
