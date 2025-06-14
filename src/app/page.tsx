@@ -1,9 +1,26 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Features from "@/components/Sections/Features";
 import Hero from "@/components/Sections/Hero";
-import Testimonials from "@/components/Sections/Testimonials";
-import VehicleFleet from "@/components/Sections/VehicleFleet";
+import Loading from "@/components/Loading";
 import { TEXT } from "@/constant/text";
+
+// Lazy load heavy components with loading fallbacks
+const VehicleFleet = dynamic(
+  () => import("@/components/Sections/VehicleFleet"),
+  {
+    loading: () => <Loading />,
+    ssr: true, // Enable SSR for SEO benefits
+  }
+);
+
+const Testimonials = dynamic(
+  () => import("@/components/Sections/Testimonials"),
+  {
+    loading: () => <Loading />,
+    ssr: true, // Enable SSR for SEO benefits
+  }
+);
 
 export const metadata: Metadata = {
   title: TEXT.meta.home.title,
