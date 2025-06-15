@@ -51,31 +51,31 @@ export const VEHICLE_FLEET_DATA = {
     {
       id: 1,
       name: "Volkswagen Polo",
-      image: "/volkswagen-polo.jpg",
+      image: "/volkswagen-polo.png",
       price: "Rs. 4,999/day",
     },
     {
       id: 2,
       name: "Neta V",
-      image: "/netaV.jpg",
+      image: "/netaV.png",
       price: "Rs. 4,999/day",
     },
     {
       id: 3,
       name: "BYD Atto 3",
-      image: "/BYD_Atto_3.jpg",
+      image: "/BYD_Atto_3.png",
       price: "Rs. 4,999/day",
     },
     {
       id: 4,
       name: "Nexon Prime",
-      image: "/nexon-ev.avif",
+      image: "/nexon-ev.png",
       price: "Rs. 4,999/day",
     },
     {
       id: 5,
       name: "Nexon Max",
-      image: "/nexonmax.jpeg",
+      image: "/nexonmax.png",
       price: "Rs. 4,999/day",
     },
   ],
@@ -109,13 +109,13 @@ export const VEHICLE_FLEET_DATA = {
     {
       id: 2,
       name: "Audi",
-      image: "/audi-vintage.webp",
+      image: "/audi-vintage.png",
       price: "Please contact us",
     },
     {
       id: 3,
       name: "Beetle",
-      image: "/beetle-vintage.webp",
+      image: "/beetle-vintage.png",
       price: "Please contact us",
     },
   ],
@@ -123,13 +123,13 @@ export const VEHICLE_FLEET_DATA = {
     {
       id: 1,
       name: "Datsun Go Plus 7 seater",
-      image: "/datsun-go-plus.jpg",
+      image: "/datsun-go-plus.png",
       price: "Rs. 5,999/day",
     },
     {
       id: 2,
       name: "Scorpio",
-      image: "/Scorpio.jpg",
+      image: "/Scorpio.png",
       price: "Rs. 5,999/day",
     },
   ],
@@ -137,8 +137,22 @@ export const VEHICLE_FLEET_DATA = {
     {
       id: 1,
       name: "Bus",
-      image: "/bus.jpeg",
+      image: "/bus.png",
       price: "Rs. 12,999/day",
+    },
+  ],
+  Van: [
+    {
+      id: 1,
+      name: "Foton Electric Van",
+      image: "/Foton-Electric.png",
+      price: "Rs. 4,999/day",
+    },
+    {
+      id: 2,
+      name: "Toyota Hiace",
+      image: "/toyota-hiace.png",
+      price: "Rs. 4,999/day",
     },
   ],
 };
