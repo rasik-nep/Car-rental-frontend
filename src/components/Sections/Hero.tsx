@@ -76,7 +76,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.01 }}
-                  className="text-[3.125rem] sm:text-[3.75rem] lg:text-[12vh] font-extrabold text-text-500 leading-none"
+                  className="text-[3.75rem] lg:text-[11vh] font-extrabold text-text-500 leading-none"
                 >
                   {TEXT.hero.title}
                 </motion.h1>
@@ -84,7 +84,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: 0.1 }}
-                  className="text-[1.25rem] sm:text-[1.875rem] lg:text-[5vh] text-text-500 py-5 leading-tight"
+                  className="text-[1.25rem] sm:text-[1.875rem] lg:text-[4.5vh] text-text-500 py-5 leading-tight"
                 >
                   {TEXT.hero.subtitle}
                 </motion.h4>
