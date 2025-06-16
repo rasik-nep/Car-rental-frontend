@@ -6,6 +6,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TEXT } from "@/constant/text";
 
+// Add loading spinner component
+const LoadingSpinner = () => (
+  <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+    <div className="w-8 h-8 border-4 border-text-700 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
+
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -34,6 +41,17 @@ export default function Cars() {
   const [selectedVehicleId, setSelectedVehicleId] = useState<number | null>(
     null
   );
+  const [loadingImages, setLoadingImages] = useState<{
+    [key: number]: boolean;
+  }>({});
+
+  const handleImageLoad = (id: number) => {
+    setLoadingImages((prev) => ({ ...prev, [id]: false }));
+  };
+
+  const handleImageStartLoading = (id: number) => {
+    setLoadingImages((prev) => ({ ...prev, [id]: true }));
+  };
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
@@ -141,6 +159,7 @@ export default function Cars() {
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
                     >
+                      {loadingImages[item.id] && <LoadingSpinner />}
                       <Image
                         src={item.image || ""}
                         alt={item.name || "Vehicle image"}
@@ -148,6 +167,8 @@ export default function Cars() {
                         height={400}
                         className="w-full h-[250px] object-cover"
                         priority={index < 3}
+                        onLoad={() => handleImageLoad(item.id)}
+                        onLoadStart={() => handleImageStartLoading(item.id)}
                       />
                       <div
                         className={`absolute inset-0 bg-black/30 bg-opacity-50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${

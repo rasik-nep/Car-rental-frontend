@@ -7,6 +7,13 @@ import React, { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TEXT } from "@/constant/text";
 
+// Add loading spinner component
+const LoadingSpinner = () => (
+  <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+    <div className="w-8 h-8 border-4 border-text-700 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
+
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -78,6 +85,17 @@ export default function VehicleFleet() {
   const [selectedVehicleId, setSelectedVehicleId] = useState<number | null>(
     null
   );
+  const [loadingImages, setLoadingImages] = useState<{
+    [key: number]: boolean;
+  }>({});
+
+  const handleImageLoad = (id: number) => {
+    setLoadingImages((prev) => ({ ...prev, [id]: false }));
+  };
+
+  const handleImageStartLoading = (id: number) => {
+    setLoadingImages((prev) => ({ ...prev, [id]: true }));
+  };
 
   // Replace the handleCategoryChange function around line 32:
   const handleCategoryChange = useCallback((category: string) => {
@@ -181,12 +199,15 @@ export default function VehicleFleet() {
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
                     >
+                      {loadingImages[item.id] && <LoadingSpinner />}
                       <Image
                         src={item.image || ""}
                         alt={item.name || "Vehicle image"}
                         width={700}
                         height={200}
                         className="w-full h-[180px] md:h-[230px] object-cover"
+                        onLoad={() => handleImageLoad(item.id)}
+                        onLoadStart={() => handleImageStartLoading(item.id)}
                       />
                       <div
                         className={`absolute inset-0 bg-black/30 bg-opacity-50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${
@@ -245,12 +266,15 @@ export default function VehicleFleet() {
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
                     >
+                      {loadingImages[item.id] && <LoadingSpinner />}
                       <Image
                         src={item.image || ""}
                         alt={item.name || "Vehicle image"}
                         width={150}
                         height={100}
                         className="w-full h-[150px] object-cover"
+                        onLoad={() => handleImageLoad(item.id)}
+                        onLoadStart={() => handleImageStartLoading(item.id)}
                       />
                       <div
                         className={`absolute inset-0 bg-black/30 bg-opacity-50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${
