@@ -6,13 +6,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TEXT } from "@/constant/text";
 
-// Add loading spinner component
-const LoadingSpinner = () => (
-  <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-    <div className="w-8 h-8 border-4 border-text-700 border-t-transparent rounded-full animate-spin"></div>
-  </div>
-);
-
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -41,17 +34,6 @@ export default function Cars() {
   const [selectedVehicleId, setSelectedVehicleId] = useState<number | null>(
     null
   );
-  const [loadingImages, setLoadingImages] = useState<{
-    [key: number]: boolean;
-  }>({});
-
-  const handleImageLoad = (id: number) => {
-    setLoadingImages((prev) => ({ ...prev, [id]: false }));
-  };
-
-  const handleImageStartLoading = (id: number) => {
-    setLoadingImages((prev) => ({ ...prev, [id]: true }));
-  };
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
@@ -143,12 +125,12 @@ export default function Cars() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex flex-col items-center"
+                  className="flex flex-col items-center "
                 >
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="relative overflow-hidden rounded-lg w-full cursor-pointer group"
+                    className="relative overflow-hidden rounded-lg w-full max-w-[350px] h-[250px] cursor-pointer group"
                     onClick={() =>
                       setSelectedVehicleId(
                         selectedVehicleId === item.id ? null : item.id
@@ -158,18 +140,15 @@ export default function Cars() {
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
+                      className="relative w-full h-full"
                     >
-                      {loadingImages[item.id] && <LoadingSpinner />}
                       <Image
                         src={item.image}
                         alt={item.name || "Vehicle image"}
-                        width={700}
-                        height={400}
-                        className="w-full h-[250px] object-cover"
+                        fill
+                        className="object-cover"
                         priority={index < 3}
                         placeholder="blur"
-                        onLoad={() => handleImageLoad(item.id)}
-                        onLoadStart={() => handleImageStartLoading(item.id)}
                       />
                       <div
                         className={`absolute inset-0 bg-black/30 bg-opacity-50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${

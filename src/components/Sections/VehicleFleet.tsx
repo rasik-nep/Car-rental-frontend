@@ -170,7 +170,7 @@ export default function VehicleFleet() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="relative overflow-hidden rounded-lg cursor-pointer group"
+                    className="relative overflow-hidden rounded-lg cursor-pointer group w-[400px] h-[300px]"
                     onClick={() =>
                       setSelectedVehicleId(
                         selectedVehicleId === item.id ? null : item.id
@@ -180,13 +180,13 @@ export default function VehicleFleet() {
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
+                      className="relative w-full h-full"
                     >
                       <Image
                         src={item.image || ""}
                         alt={item.name || "Vehicle image"}
-                        width={700}
-                        height={200}
-                        className="w-full h-[180px] md:h-[230px] object-cover"
+                        fill
+                        className="object-cover"
                         placeholder="blur"
                       />
                       <div
@@ -235,7 +235,7 @@ export default function VehicleFleet() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="relative overflow-hidden rounded-lg cursor-pointer group"
+                    className="relative overflow-hidden rounded-lg cursor-pointer group w-[300px] h-[225px]"
                     onClick={() =>
                       setSelectedVehicleId(
                         selectedVehicleId === item.id ? null : item.id
@@ -245,13 +245,13 @@ export default function VehicleFleet() {
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
+                      className="relative w-full h-full"
                     >
                       <Image
                         src={item.image || ""}
                         alt={item.name || "Vehicle image"}
-                        width={150}
-                        height={100}
-                        className="w-full h-[150px] object-cover"
+                        fill
+                        className="object-cover"
                         placeholder="blur"
                       />
                       <div
