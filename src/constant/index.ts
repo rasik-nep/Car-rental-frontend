@@ -1,3 +1,23 @@
+// Import images
+// cars
+import VolkswagenPolo from "../../public/volkswagen-polo.png";
+import NetaV from "../../public/netaV.png";
+import BYDAtto3 from "../../public/BYD_Atto_3.png";
+import NexonPrime from "../../public/nexon-ev.png";
+import NexonMax from "../../public/nexonmax.png";
+// vintage
+import Mercedes from "../../public/mercedes-vintage.png";
+import Audi from "../../public/audi-vintage.png";
+import Beetle from "../../public/beetle-vintage.png";
+// SUV
+import DatsunGoPlus from "../../public/datsun-go-plus.png";
+import Scorpio from "../../public/Scorpio.png";
+// Bus
+import Bus from "../../public/bus.png";
+// Van
+import FotonElectricVan from "../../public/Foton-Electric.png";
+import ToyotaHiace from "../../public/toyota-hiace.png";
+
 export const CAR_LOGO_SLIDE_DATA = [
   {
     id: 1,
@@ -51,31 +71,31 @@ export const VEHICLE_FLEET_DATA = {
     {
       id: 1,
       name: "Volkswagen Polo",
-      image: "/volkswagen-polo.png",
+      image: VolkswagenPolo,
       price: "Rs. 4,999/day",
     },
     {
       id: 2,
       name: "Neta V",
-      image: "/netaV.png",
+      image: NetaV,
       price: "Rs. 4,999/day",
     },
     {
       id: 3,
       name: "BYD Atto 3",
-      image: "/BYD_Atto_3.png",
+      image: BYDAtto3,
       price: "Rs. 4,999/day",
     },
     {
       id: 4,
       name: "Nexon Prime",
-      image: "/nexon-ev.png",
+      image: NexonPrime,
       price: "Rs. 4,999/day",
     },
     {
       id: 5,
       name: "Nexon Max",
-      image: "/nexonmax.png",
+      image: NexonMax,
       price: "Rs. 4,999/day",
     },
   ],
@@ -103,19 +123,19 @@ export const VEHICLE_FLEET_DATA = {
     {
       id: 1,
       name: "Mercedes",
-      image: "/mercedes-vintage.png",
+      image: Mercedes,
       price: "Please contact us",
     },
     {
       id: 2,
       name: "Audi",
-      image: "/audi-vintage.png",
+      image: Audi,
       price: "Please contact us",
     },
     {
       id: 3,
       name: "Beetle",
-      image: "/beetle-vintage.png",
+      image: Beetle,
       price: "Please contact us",
     },
   ],
@@ -123,13 +143,13 @@ export const VEHICLE_FLEET_DATA = {
     {
       id: 1,
       name: "Datsun Go Plus 7 seater",
-      image: "/datsun-go-plus.png",
+      image: DatsunGoPlus,
       price: "Rs. 5,999/day",
     },
     {
       id: 2,
       name: "Scorpio",
-      image: "/Scorpio.png",
+      image: Scorpio,
       price: "Rs. 5,999/day",
     },
   ],
@@ -137,7 +157,7 @@ export const VEHICLE_FLEET_DATA = {
     {
       id: 1,
       name: "Bus",
-      image: "/bus.png",
+      image: Bus,
       price: "Rs. 12,999/day",
     },
   ],
@@ -145,13 +165,13 @@ export const VEHICLE_FLEET_DATA = {
     {
       id: 1,
       name: "Foton Electric Van",
-      image: "/Foton-Electric.png",
+      image: FotonElectricVan,
       price: "Rs. 4,999/day",
     },
     {
       id: 2,
       name: "Toyota Hiace",
-      image: "/toyota-hiace.png",
+      image: ToyotaHiace,
       price: "Rs. 4,999/day",
     },
   ],
@@ -203,7 +223,7 @@ export const TESTIMONIALS_DATA = [
     name: "Meena Dangol",
     role: "Family Traveler",
     rating: 5,
-    text: "Our family of six rented a van for a week-long tour around eastern Nepal. The rental process was smooth, and the vehicle was perfect for a long trip—comfortable, spacious, and reliable. We’ll definitely book again..",
+    text: "Our family of six rented a van for a week-long tour around eastern Nepal. The rental process was smooth, and the vehicle was perfect for a long trip—comfortable, spacious, and reliable. We'll definitely book again..",
   },
 ];
 

@@ -161,12 +161,13 @@ export default function Cars() {
                     >
                       {loadingImages[item.id] && <LoadingSpinner />}
                       <Image
-                        src={item.image || ""}
+                        src={item.image}
                         alt={item.name || "Vehicle image"}
                         width={700}
                         height={400}
                         className="w-full h-[250px] object-cover"
                         priority={index < 3}
+                        placeholder="blur"
                         onLoad={() => handleImageLoad(item.id)}
                         onLoadStart={() => handleImageStartLoading(item.id)}
                       />
